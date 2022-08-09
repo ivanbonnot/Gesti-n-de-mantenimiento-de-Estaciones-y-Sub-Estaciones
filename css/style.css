@@ -1,0 +1,323 @@
+@charset "UTF-8";
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Covered+By+Your+Grace&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; }
+
+html {
+  font-size: 62.5%; }
+
+body {
+  font-family: 'Roboto', sans-serif;
+  background-color: #d0f7ff;
+  background: linear-gradient(180deg, #d0f7ff 0%, white 44%, #d2f8ff 100%);
+  overflow-x: hidden; }
+
+.grid-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto auto 0.5fr;
+  grid-template-areas: "navbar navbar"
+ "main main"
+ "footer footer"; }
+
+/* --- NavBar --- */
+.header {
+  grid-area: navbar;
+  position: fixed;
+  z-index: 100;
+  /* Tamaño de icono de cuando el navbar se achica */ }
+  .header nav {
+    background-color: #135a7d !important;
+    width: 100vw; }
+
+    .header nav .logo-size {
+      height: 57px;
+      width: 120px; }
+
+    .header nav a {
+      display: flex;
+      flex-direction: row;
+      align-items: center; }
+      .header nav a h1 {
+        margin: 0px 0px 0 10px;
+        padding-left: 20px;
+        font-family: 'Arial';
+        font-size: 2rem;
+        margin-left: 20px;
+        font-weight: lighter; }
+    .header nav ul {
+      flex-grow: 1;
+      display: flex;
+      justify-content: flex-end; }
+      .header nav ul li a {
+        margin-right: 15px;
+        padding: 7px 15px;
+        font-size: 1.8rem;
+        letter-spacing: 1px;
+        transition: all 0.5s ease-in-out;
+        font-weight: bold;
+        text-transform: uppercase; }
+        .header nav ul li a:hover {
+          transform: scale(1.015);
+          color: #c0392b; }
+  .header .navbar-toggler-icon {
+    height: 20px;
+    width: 20px; }
+
+.about, .ofertas, .clientes, .contacto .form, .contacto .form .consulta textarea, .opiniones .opinion, .opinar .form, .opinar .form textarea {
+  border: 1px solid rgba(0, 0, 0, 0.4);
+  box-shadow: 3px 3px 0px 0px #00000060;
+  border-radius: 2px; }
+
+/* --- index --- */
+main {
+  grid-area: main; }
+
+/* Imagen de bienvenida */
+.hero {
+  height: 100vh;
+  width: 100vw;
+  background: linear-gradient(rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0.15)), url("../img/bienvenida3.jpg");
+  background-color: steelblue;
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; }
+  .hero div {
+    font-family: 'Covered By Your Grace';
+    color: rgba(255, 255, 255, 0.9);
+    text-align: center;
+    font-size: 4rem; }
+    .hero div h2 {
+      font-size: 5.5rem; }
+    .hero div h3 {
+      font-size: 5rem; }
+  .hero img {
+    height: 75px;
+    width: 75px;
+    position: absolute;
+    top: 85%;
+    left: 50%;
+    transform: translate(-50%, -15%); }
+
+
+/* ////////////////////////////////////////////////// */
+/* Formulario */
+
+.titulo {
+  font-weight: bold;
+  font-size: 3rem;
+  text-transform: uppercase;
+  color: white;
+}
+.container {
+    background-color: white;
+}
+header {
+  margin-top: 3rem;
+}
+header h1 {
+  color: white;
+}
+.lista-citas .cita {
+  border-bottom: 1px solid #e1e1e1;
+  padding: 2rem;
+  padding-bottom: 3rem;
+  
+}
+.lista-citas .cita:last-of-type {
+  border-bottom: 0;
+}
+
+.lista-citas .cita p {
+  margin:0;
+}
+.lista-citas .cita button {
+  margin-top: 1rem!important;
+}
+.lista-citas .cita span {
+  font-weight: bold;
+}
+textarea {
+    height: 200px!important;
+}
+
+svg {
+  width: 21px;
+}
+/* Comienzo de footer */
+.footer {
+  grid-area: footer;
+  background-color: #006ea6;
+  height: auto;
+  width: 100%;
+  color: #EAEAEA;
+  display: grid;
+  grid-template-columns: 1fr 150px 1fr;
+  grid-template-rows: auto;
+  grid-template-areas: "form desarrollador redes";
+  justify-items: center;
+  align-items: center; }
+  .footer .formulario {
+    background-color: #2a4e6c;
+    height: 300px;
+    width: 480px;
+    grid-area: form; }
+  .footer .contacto-redes {
+    background-color: #2a4e6c;
+    height: 300px;
+    width: 480px;
+    grid-area: redes; }
+  .footer .iconos-redes-sociales img {
+    height: 50px;
+    width: 50px;
+    margin: 10px; }
+  .footer .contacto-desarrollador {
+    height: 100px;
+    width: 120px;
+    grid-area: desarrollador; }
+    .footer .contacto-desarrollador img {
+      height: 50px;
+      width: 50px;
+      margin-left: 5px; }
+
+/* ////////////////////////////////////////////////// */
+/* media queries */
+@media screen and (min-width: 1400px) {
+  /* index.html */
+  .about-us {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; } }
+
+/* ////////////////////////////////////////////////// */
+@media screen and (max-width: 1060px) {
+  .grid-container {
+    grid-template-areas: "navbar"
+ "main"
+ "footer";
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto; }
+  /* NavBar */
+  .header nav .logo-size {
+    height: 50px;
+    width: 80px; }
+  .header nav a h1 {
+    font-size: 2.5rem; }
+  .navbar-nav {
+    padding-right: 10px; }
+  /* contacto.html */
+  .contacto .form {
+    margin-top: 100px; }
+  /* opiniones.html */
+  .opiniones .opinion {
+    margin-top: 85px;
+    width: 90vw; }
+  .opinar .form {
+    width: 85vw;
+    align-content: unset; }
+  /* Footer */
+  .footer {
+    grid-template-areas: "form"
+ "redes"
+ "desarrollador";
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr 150px; } }
+
+
+/* ////////////////////////////////////////////////// */
+@media screen and (max-width: 768px) {
+  html {
+    font-size: 55%; }
+  /* NavBar */
+  .header nav a h1 {
+    margin-left: 10px; }
+  /* contacto.html */
+  .contacto .form {
+    margin: 100px 0px 30px 0%;
+    width: 95vw; }
+  .contacto .form .phone-number {
+    margin-top: 25px;
+    flex-direction: column;
+    align-items: flex-start; }
+  .contacto .form .area {
+    margin-top: 5px; }
+  .contacto .form .number {
+    margin-top: 5px;
+    width: 350px; }
+  .contacto .form .phone-check {
+    width: 55%;
+    margin: 15px;
+    flex-direction: column;
+    align-items: flex-start;
+    border: 1px solid rgba(0, 0, 0, 0.4); }
+  .contacto .form .phone-check p {
+    margin-top: 5px; }
+  .contacto .form .phone-check input {
+    margin: 10px 0 10px 100px; }
+  /* opiniones.html */
+  .opiniones .opinion {
+    margin-top: 100px;
+    font-size: 1.8rem; }
+  .opiniones .opinion h3 {
+    font-size: 2rem; } }
+
+/* ////////////////////////////////////////////////// */
+@media screen and (max-width: 576px) {
+  /* index.html */
+  .cards-viajes {
+    margin: 8px; } }
+
+/* ////////////////////////////////////////////////// */
+@media screen and (max-width: 480px) {
+  html {
+    font-size: 50%; }
+  /* contacto.html */
+  .contacto .form .number {
+    width: 95%; }
+  .contacto .form .consulta textarea {
+    width: 95%; }
+  /* opiniones.html */
+  .opiniones .opinion {
+    width: 98%;
+    margin-bottom: 0px; }
+  .opinar .form {
+    width: 95%; }
+  .opinar .form input {
+    width: 80%; }
+  .opinar .form .name {
+    margin-top: 25px;
+    flex-direction: column;
+    align-items: flex-start; }
+  .opinar .form .name .nomb {
+    margin-top: 5px;
+    width: 90%; }
+  .opinar .form .name .ap {
+    margin-top: 5px;
+    width: 90%; }
+  .opinar .form textarea {
+    width: 90%; }
+  /* Footer */
+  .footer .formulario {
+    height: auto;
+    width: 96%; }
+  .footer .contacto-redes {
+    height: auto;
+    width: 96%;
+    margin: 5px; } }
+
+/* ////////////////////////////////////////////////// */
+@media screen and (max-width: 320px) {
+  /* contacto.html */
+  .contacto .form {
+    width: 100vw; }
+  .contacto .form .number {
+    width: 280px; }
+  .contacto .form .phone-check {
+    width: 90%; } }
