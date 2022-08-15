@@ -4,10 +4,10 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Gestión de mantenimiento de Estaciones y Sub Estaciones</title>
+    <title>ET Basavilbaso</title>
     <link
       rel="shortcut icon"
-      href="./img/icons/favicon.ico"
+      href="../img/icons/favicon.ico"
       type="image/x-icon"
     />
     <link href="../css/bootstrap.min.css" rel="stylesheet" />
@@ -16,50 +16,24 @@
 
   <body>
     <h2 class="text-center my-5 titulo">
-      Administrador de Pacientes de Veterinaria
+      Anotaciones del la estación
     </h2>
     <div class="container mt-5 p-5">
       <div id="contenido" class="row">
         <div class="col-md-6 agregar-cita">
           <form id="nueva-cita">
-            <legend class="mb-4">Datos del Paciente</legend>
+            <legend class="mb-4">Crear nota</legend>
             <div class="form-group row">
               <label class="col-sm-4 col-lg-4 col-form-label"
-                >Nombre Mascota:</label
+                >Titulo:</label
               >
               <div class="col-sm-8 col-lg-8">
                 <input
                   type="text"
-                  id="mascota"
-                  name="mascota"
+                  id="titulo"
+                  name="titulo"
                   class="form-control"
-                  placeholder="Nombre Mascota"
-                />
-              </div>
-            </div>
-            <div class="form-group row">
-              <label class="col-sm-4 col-lg-4 col-form-label"
-                >Propietario:</label
-              >
-              <div class="col-sm-8 col-lg-8">
-                <input
-                  type="text"
-                  id="propietario"
-                  name="propietario"
-                  class="form-control"
-                  placeholder="Nombre Dueño de la Mascota"
-                />
-              </div>
-            </div>
-            <div class="form-group row">
-              <label class="col-sm-4 col-lg-4 col-form-label">Teléfono:</label>
-              <div class="col-sm-8 col-lg-8">
-                <input
-                  type="tel"
-                  id="telefono"
-                  name="telefono"
-                  class="form-control"
-                  placeholder="Número de Teléfono"
+                  placeholder="Titulo"
                 />
               </div>
             </div>
@@ -83,24 +57,24 @@
             </div>
 
             <div class="form-group row">
-              <label class="col-sm-4 col-lg-4 col-form-label">Sintomas:</label>
+              <label class="col-sm-4 col-lg-4 col-form-label">Detalles:</label>
               <div class="col-sm-8 col-lg-8">
                 <textarea
-                  id="sintomas"
-                  name="sintomas"
+                  id="detalles"
+                  name="detalles"
                   class="form-control"
                 ></textarea>
               </div>
             </div>
             <div class="form-group">
-              <button type="submit" class="btn btn-success w-100 d-block">
-                Crear Cita
+              <button type="submit" class="btn mt-3 btn-success w-100 d-block">
+                Crear Nota
               </button>
             </div>
           </form>
         </div>
         <div class="col-md-6">
-          <h2 id="administra" class="mb-4">Administra tus Citas</h2>
+          <h2 id="administra" class="mb-4">Notas de la ET</h2>
           <ul id="citas" class="list-group lista-citas"></ul>
         </div>
       </div>
@@ -108,6 +82,6 @@
     </div>
     <!--.container-->
 
-    <script src="js/app.js"></script>
+    <script src="../js/script.js"></script>
   </body>
 </html>

@@ -11,8 +11,7 @@ html {
 
 body {
   font-family: 'Roboto', sans-serif;
-  background-color: #d0f7ff;
-  background: linear-gradient(180deg, #d0f7ff 0%, white 44%, #d2f8ff 100%);
+  background-color: white;
   overflow-x: hidden; }
 
 .grid-container {
@@ -28,9 +27,11 @@ body {
   grid-area: navbar;
   position: fixed;
   z-index: 100;
+  margin-top: 0;
   /* Tamaño de icono de cuando el navbar se achica */ }
   .header nav {
     background-color: #135a7d !important;
+    top: 0;
     width: 100vw; }
 
     .header nav .logo-size {
@@ -75,6 +76,15 @@ body {
 /* --- index --- */
 main {
   grid-area: main; }
+  main div ul {
+    margin-top: 100px;
+  }
+
+  main div ul li {
+    margin-top: 5px;
+    font-size: 2rem;
+    list-style: none;
+  }
 
 /* Imagen de bienvenida */
 .hero {
@@ -108,6 +118,19 @@ main {
 
 
 /* ////////////////////////////////////////////////// */
+/* ESTACIONES */
+#contenido {
+  background-color: #6ab8df; 
+  padding: 20px;
+  font-size: 1.5rem;
+}
+
+#contenido div button {
+  background-color: white;
+  color: black;
+  font-size: 1.5rem;
+}
+
 /* Formulario */
 
 .titulo {
@@ -189,135 +212,4 @@ svg {
 
 /* ////////////////////////////////////////////////// */
 /* media queries */
-@media screen and (min-width: 1400px) {
-  /* index.html */
-  .about-us {
-    display: flex;
-    flex-direction: column;
-    justify-content: center; } }
-
-/* ////////////////////////////////////////////////// */
-@media screen and (max-width: 1060px) {
-  .grid-container {
-    grid-template-areas: "navbar"
- "main"
- "footer";
-    grid-template-columns: 1fr;
-    grid-template-rows: auto auto auto; }
-  /* NavBar */
-  .header nav .logo-size {
-    height: 50px;
-    width: 80px; }
-  .header nav a h1 {
-    font-size: 2.5rem; }
-  .navbar-nav {
-    padding-right: 10px; }
-  /* contacto.html */
-  .contacto .form {
-    margin-top: 100px; }
-  /* opiniones.html */
-  .opiniones .opinion {
-    margin-top: 85px;
-    width: 90vw; }
-  .opinar .form {
-    width: 85vw;
-    align-content: unset; }
-  /* Footer */
-  .footer {
-    grid-template-areas: "form"
- "redes"
- "desarrollador";
-    grid-template-columns: 1fr;
-    grid-template-rows: 1fr 1fr 150px; } }
-
-
-/* ////////////////////////////////////////////////// */
-@media screen and (max-width: 768px) {
-  html {
-    font-size: 55%; }
-  /* NavBar */
-  .header nav a h1 {
-    margin-left: 10px; }
-  /* contacto.html */
-  .contacto .form {
-    margin: 100px 0px 30px 0%;
-    width: 95vw; }
-  .contacto .form .phone-number {
-    margin-top: 25px;
-    flex-direction: column;
-    align-items: flex-start; }
-  .contacto .form .area {
-    margin-top: 5px; }
-  .contacto .form .number {
-    margin-top: 5px;
-    width: 350px; }
-  .contacto .form .phone-check {
-    width: 55%;
-    margin: 15px;
-    flex-direction: column;
-    align-items: flex-start;
-    border: 1px solid rgba(0, 0, 0, 0.4); }
-  .contacto .form .phone-check p {
-    margin-top: 5px; }
-  .contacto .form .phone-check input {
-    margin: 10px 0 10px 100px; }
-  /* opiniones.html */
-  .opiniones .opinion {
-    margin-top: 100px;
-    font-size: 1.8rem; }
-  .opiniones .opinion h3 {
-    font-size: 2rem; } }
-
-/* ////////////////////////////////////////////////// */
-@media screen and (max-width: 576px) {
-  /* index.html */
-  .cards-viajes {
-    margin: 8px; } }
-
-/* ////////////////////////////////////////////////// */
-@media screen and (max-width: 480px) {
-  html {
-    font-size: 50%; }
-  /* contacto.html */
-  .contacto .form .number {
-    width: 95%; }
-  .contacto .form .consulta textarea {
-    width: 95%; }
-  /* opiniones.html */
-  .opiniones .opinion {
-    width: 98%;
-    margin-bottom: 0px; }
-  .opinar .form {
-    width: 95%; }
-  .opinar .form input {
-    width: 80%; }
-  .opinar .form .name {
-    margin-top: 25px;
-    flex-direction: column;
-    align-items: flex-start; }
-  .opinar .form .name .nomb {
-    margin-top: 5px;
-    width: 90%; }
-  .opinar .form .name .ap {
-    margin-top: 5px;
-    width: 90%; }
-  .opinar .form textarea {
-    width: 90%; }
-  /* Footer */
-  .footer .formulario {
-    height: auto;
-    width: 96%; }
-  .footer .contacto-redes {
-    height: auto;
-    width: 96%;
-    margin: 5px; } }
-
-/* ////////////////////////////////////////////////// */
-@media screen and (max-width: 320px) {
-  /* contacto.html */
-  .contacto .form {
-    width: 100vw; }
-  .contacto .form .number {
-    width: 280px; }
-  .contacto .form .phone-check {
-    width: 90%; } }
+/* @media screen and (min-width: 1400px) { */
