@@ -1,0 +1,21 @@
+Ya echo el formulario en cada una de las paginas, ver:
+
+Si lo hago en cada una o no     
+Si esta bien el formato en css 
+
+Pasos:
+Leer cada dato del formulario
+Agregarlo a la lista (array de obj?)
+Guardar en el localstorage por ahora
+Datos a agregar:
+-nombre de quien guardo la nota
+-fecha y hora
+-borrar la nota
+-log con quien borro la nota y un resumen de lo que era
+
+Librerias usadas por maca:
+sweetalert https://sweetalert.js.org/guides/#installation
+toastify https://github.com/apvarun/toastify-js/blob/master/README.md
+luxon, similar a el metodo Date() nativo de js pero con mas funcionalidad
+https://moment.github.io/luxon/#/?id=luxon
+negoni react burger menu
