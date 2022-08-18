@@ -1,0 +1,24 @@
+{
+  "dependencies": {
+    "full-icu": "^1.4.0",
+    "luxon": "^3.0.1",
+    "type": "module"
+  },
+  "name": "proyecto-entrega-final-enersa",
+  "version": "1.0.0",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ivanbonnot/Gesti-n-de-mantenimiento-de-Estaciones-y-Sub-Estaciones.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ivanbonnot/Gesti-n-de-mantenimiento-de-Estaciones-y-Sub-Estaciones/issues"
+  },
+  "homepage": "https://github.com/ivanbonnot/Gesti-n-de-mantenimiento-de-Estaciones-y-Sub-Estaciones#readme",
+  "description": ""
+}
