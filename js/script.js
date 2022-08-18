@@ -1,6 +1,6 @@
 //const { DateTime } = require("luxon");
 
-import { DateTime } from "luxon";
+//import { DateTime } from "luxon";
 
 
 const tituloInput = document.querySelector('#titulo')
@@ -15,7 +15,7 @@ const crearNota = document.querySelector('#crearNota')
 let notas = []
 
 //console.log(DateTime.now().setZone('America/New_York').minus({weeks:1}).endOf('day').toISO())
-console.log(DateTime.now().ts())
+//console.log(DateTime.now().ts())
 
 // Eventos
 eventListeners();
