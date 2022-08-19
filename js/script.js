@@ -3,16 +3,16 @@
 //import { DateTime } from "luxon";
 
 
-const tituloInput = document.querySelector('#titulo')
-const fechaInput = document.querySelector('#fecha')
-const horaInput = document.querySelector('#hora')
-const detallesInput = document.querySelector('#detalles')
+const tituloInput = document.querySelector('#titulo');
+const fechaInput = document.querySelector('#fecha');
+const horaInput = document.querySelector('#hora');
+const detallesInput = document.querySelector('#detalles');
 
 const contenedorNotas = document.querySelector('#notas');
 
-const crearNota = document.querySelector('#crearNota')
+const crearNota = document.querySelector('#crearNota');
 
-let notas = []
+let notas = [];
 
 //console.log(DateTime.now().setZone('America/New_York').minus({weeks:1}).endOf('day').toISO())
 //console.log(DateTime.now().ts())
@@ -31,27 +31,30 @@ const notaObj = {
     titulo: '',
     creadaPor: '',
     fecha: '',
-    hora:'',
+    hora: '',
     detalles: ''
 }
 
 function datosNota(e) {
     //  console.log(e.target.name) // Obtener el Input
-     notaObj[e.target.name] = e.target.value;
-     console.log(notaObj)
+    notaObj[e.target.name] = e.target.value;
+
 }
 
 
-function agregarNota(e) { 
+function agregarNota(e) {
     e.preventDefault();
-    limpiarHTML();
     
+
+    console.log(notaObj)
     notas = [...notas, notaObj]
+
     console.log(notas)
+    limpiarHTML();
 
     notas.forEach(nota => {
         console.log('entra')
-        const {titulo, creadaPor, fecha, hora, detalles, id } = nota;
+        const { titulo, creadaPor, fecha, hora, detalles, id } = nota;
 
         const divNota = document.createElement('div');
         divNota.classList.add('cita', 'p-3');
@@ -94,14 +97,33 @@ function agregarNota(e) {
         divNota.appendChild(horaParrafo);
         divNota.appendChild(detallesParrafo);
         divNota.appendChild(btnEliminar)
-        //divNota.appendChild(btnEditar)
 
         contenedorNotas.appendChild(divNota);
-    });    
+
+
+    });
+
+    reiniciarFormulario();
+    reiniciarObjeto()
 }
 
 function limpiarHTML() {
-    while(contenedorNotas.firstChild) {
+    while (contenedorNotas.firstChild) {
         contenedorNotas.removeChild(contenedorNotas.firstChild);
     }
+}
+
+function reiniciarFormulario() {
+    document.querySelector('#titulo').value = ""
+    document.querySelector('#fecha').value = ""
+    document.querySelector('#hora').value = ""
+    document.querySelector('#detalles').value = ""
+}
+
+function reiniciarObjeto() {
+    notaObj.titulo = '';
+    notaObj.creadaPor = '';
+    notaObj.fecha = '';
+    notaObj.hora = '';
+    notaObj.detalles = '';
 }
