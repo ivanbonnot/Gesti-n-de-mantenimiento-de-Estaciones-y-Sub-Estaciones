@@ -131,6 +131,15 @@ main {
   font-size: 1.5rem;
 }
 
+.error div{
+  color: red;
+  text-align: center;
+  border: 1px solid rgba(253, 2, 2, 0.4);
+  border-radius: 2.5px;
+  padding: 5px;
+  margin-top: 5px;
+}
+
 /* Formulario */
 
 .titulo {
