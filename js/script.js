@@ -25,6 +25,11 @@ function eventListeners() {
     horaInput.addEventListener('change', datosNota);
     detallesInput.addEventListener('change', datosNota);
     crearNota.addEventListener('click', agregarNota)
+
+    document.addEventListener('DOMContentLoaded', () => {
+        notas = JSON.parse(localStorage.getItem('notasCreadas')) || [];
+        imprimirNotaHTML()
+      });
 }
 
 const notaObj = {
@@ -61,6 +66,7 @@ function imprimirNotaHTML() {
     } else {
         const notaO = { ...notaObj }
         notas = [...notas, notaO]
+        localStorage.setItem('notasCreadas', JSON.stringify(notas));
     }
 
     limpiarHTML();
@@ -110,10 +116,11 @@ function imprimirNotaHTML() {
     reiniciarObjeto();
 }
 
-
 function eliminarNota(id) {
     console.log(id)
+    localStorage.removeItem('notasCreadas'); //Remuevo el array entero del LS
     notas = notas.filter(nota => nota.id !== id)
+    localStorage.setItem('notasCreadas', JSON.stringify(notas)); //Seteo el nuevo array ya sin la nota borrada
     console.log(notas)
     imprimirNotaHTML()
 }
@@ -129,7 +136,6 @@ function reiniciarFormulario() {
     fechaInput.value = ""
     horaInput.value = ""
     detallesInput.value = ""
-
 }
 
 function reiniciarObjeto() {
