@@ -1,7 +1,7 @@
 //import dayjs from 'dayjs';
 //import DateTime from 'luxon.js'
-//import  DateTime  from 'luxon';
-import { DateTime } from "luxon";
+import {DateTime}   from 'luxon';
+//import { DateTime } from "luxon";
 //DateTime = require('luxon');
 //var DateTime = luxon.DateTime
 //import dayjs from 'dayjs' // ES 2015
