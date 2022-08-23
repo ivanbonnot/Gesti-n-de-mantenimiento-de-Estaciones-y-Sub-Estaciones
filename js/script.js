@@ -1,12 +1,5 @@
-//import dayjs from 'dayjs';
-//import DateTime from 'luxon.js'
-import {DateTime}   from 'luxon';
-//import { DateTime } from "luxon";
-//DateTime = require('luxon');
-//var DateTime = luxon.DateTime
-//import dayjs from 'dayjs' // ES 2015
-//dayjs().format()
-//let DateTime = luxon.DateTime
+//Luxon
+var DateTime = luxon.DateTime;
 
 const tituloInput = document.querySelector('#titulo');
 const fechaInput = document.querySelector('#fecha');
@@ -19,8 +12,6 @@ const crearNota = document.querySelector('#crear-nota');
 
 let notas = [];
 
-//console.log(DateTime.now().setZone('America/New_York').minus({weeks:1}).endOf('day').toISO())
-console.log(DateTime.now().ts())
 
 // Eventos
 eventListeners();
@@ -36,6 +27,7 @@ function eventListeners() {
         imprimirNotaHTML()
       });
 }
+
 
 const notaObj = {
     titulo: '',
@@ -69,6 +61,10 @@ function imprimirNotaHTML() {
     const { titulo, detalles } = notaObj
     if (titulo === '' || detalles === '') {
     } else {
+        const horaluxon = (DateTime.now().toJSDate())
+        const hora = String(horaluxon).slice(15,24)
+        notaObj.fecha = `${DateTime.now().toLocaleString()}`;
+        notaObj.hora = `${hora}`;
         const notaO = { ...notaObj }
         notas = [...notas, notaO]
         localStorage.setItem('notasCreadas', JSON.stringify(notas));
@@ -78,6 +74,7 @@ function imprimirNotaHTML() {
 
     notas.forEach((nota) => {
         const { titulo, creadaPor, fecha, hora, detalles, id } = nota;
+        
 
         const divNota = document.createElement('div');
         divNota.classList.add('cita', 'p-3');
