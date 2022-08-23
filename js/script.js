@@ -2,8 +2,8 @@
 var DateTime = luxon.DateTime;
 
 const tituloInput = document.querySelector('#titulo');
-const fechaInput = document.querySelector('#fecha');
-const horaInput = document.querySelector('#hora');
+//const fechaInput = document.querySelector('#fecha');
+//const horaInput = document.querySelector('#hora');
 const detallesInput = document.querySelector('#detalles');
 
 const contenedorNotas = document.querySelector('#notas');
@@ -17,8 +17,8 @@ let notas = [];
 eventListeners();
 function eventListeners() {
     tituloInput.addEventListener('change', datosNota);
-    fechaInput.addEventListener('change', datosNota);
-    horaInput.addEventListener('change', datosNota);
+   // fechaInput.addEventListener('change', datosNota);
+    //horaInput.addEventListener('change', datosNota);
     detallesInput.addEventListener('change', datosNota);
     crearNota.addEventListener('click', agregarNota)
 
@@ -135,8 +135,8 @@ function limpiarHTML() {
 
 function reiniciarFormulario() {
     tituloInput.value = ""
-    fechaInput.value = ""
-    horaInput.value = ""
+    //fechaInput.value = ""
+    //horaInput.value = ""
     detallesInput.value = ""
 }
 
