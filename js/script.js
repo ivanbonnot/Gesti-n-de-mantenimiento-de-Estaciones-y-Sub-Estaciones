@@ -1,7 +1,12 @@
-//const { DateTime } = require("luxon");
-
-//import { DateTime } from "luxon";
-
+//import dayjs from 'dayjs';
+//import DateTime from 'luxon.js'
+//import  DateTime  from 'luxon';
+import { DateTime } from "luxon";
+//DateTime = require('luxon');
+//var DateTime = luxon.DateTime
+//import dayjs from 'dayjs' // ES 2015
+//dayjs().format()
+//let DateTime = luxon.DateTime
 
 const tituloInput = document.querySelector('#titulo');
 const fechaInput = document.querySelector('#fecha');
@@ -15,7 +20,7 @@ const crearNota = document.querySelector('#crear-nota');
 let notas = [];
 
 //console.log(DateTime.now().setZone('America/New_York').minus({weeks:1}).endOf('day').toISO())
-//console.log(DateTime.now().ts())
+console.log(DateTime.now().ts())
 
 // Eventos
 eventListeners();
