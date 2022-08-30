@@ -129,8 +129,6 @@ main section div ul li a:hover {
   color: lightblue;
 }
 
-
-
 /* Imagen de bienvenida */
 .hero {
   height: 85vh;
@@ -146,10 +144,25 @@ main section div ul li a:hover {
 
 /* ////////////////////////////////////////////////// */
 /* ESTACIONES */
+.grid-container-estaciones {
+  height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto auto 0.5fr;
+  grid-template-areas: "navbar navbar"
+    "main main"
+    "footer footer";
+}
+
+.container {
+  grid-area: main;
+}
+
 #contenido {
-  background-color: #6ab8df;
+  background-color: #006ea6;
   padding: 20px;
   font-size: 1.5rem;
+  
 }
 
 #contenido div button {
@@ -166,8 +179,6 @@ main section div ul li a:hover {
   padding: 5px;
   margin-top: 5px;
 }
-
-/* Formulario */
 
 .titulo {
   font-weight: bold;
@@ -188,11 +199,14 @@ header h1 {
   color: white;
 }
 
+div .agregar-nota {
+  display: flex;
+}
+
 .lista-citas .cita {
   border-bottom: 1px solid #e1e1e1;
   padding: 2rem;
   padding-bottom: 3rem;
-
 }
 
 .lista-citas .cita:last-of-type {
