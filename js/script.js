@@ -2,30 +2,20 @@
 var DateTime = luxon.DateTime;
 
 const tituloInput = document.querySelector('#titulo');
-//const fechaInput = document.querySelector('#fecha');
-//const horaInput = document.querySelector('#hora');
 const detallesInput = document.querySelector('#detalles');
 
 const contenedorNotas = document.querySelectorAll('#notas');
 
 const crearNota = document.querySelectorAll('#crear-nota');
 
-
-crearNota.forEach(nota => {
-    nota.addEventListener('click', agregarNota);
-})
-
-
-
 let notas = [];
+let notasEstacion = [];
 
 
 // Eventos
 eventListeners();
 function eventListeners() {
     tituloInput.addEventListener('change', datosNota);
-    // fechaInput.addEventListener('change', datosNota);
-    //horaInput.addEventListener('change', datosNota);
     detallesInput.addEventListener('change', datosNota);
 
     crearNota.forEach(nota => {
@@ -51,7 +41,6 @@ const notaObj = {
 function datosNota(e) {
     //  console.log(e.target.name) // Obtener el Input
     notaObj[e.target.name] = e.target.value;
-
 }
 
 function agregarNota(e) {
@@ -67,7 +56,6 @@ function agregarNota(e) {
 }
 
 function imprimirNotaHTML() {
-
     //Para que al eliminar nota no me imprima el objeto vacio
     const { titulo, detalles } = notaObj
     if (titulo === '' || detalles === '') {
@@ -82,29 +70,29 @@ function imprimirNotaHTML() {
         const hora = String(horaluxon).slice(15, 24)
         notaObj.hora = `${hora}`;
         notaObj.fecha = `${DateTime.now().toLocaleString()}`;
-
         const notaO = { ...notaObj }
         notas = [...notas, notaO]
         localStorage.setItem('notasCreadas', JSON.stringify(notas));
-        console.log(notaObj)
     }
 
+    //Para imprimir cada nota en la estacion que corresponde
     contenedorNotas.forEach(contenedor => {
         crearNota.forEach(nota => {
-            // const estacion = nota.value
             if (contenedor.classList.contains(nota.value)) {
-                console.log('coincide')
+                const coincide = nota.value
+                notasEstacion = notas.filter(nota => nota.estacion === coincide)
+                imprimir()
             }
         })
     })
+}
 
-
-
+function imprimir() {
+    
     limpiarHTML();
 
-    notas.forEach((nota) => {
+    notasEstacion.forEach((nota) => {
         const { titulo, creadaPor, fecha, hora, detalles, id } = nota;
-
 
         const divNota = document.createElement('div');
         divNota.classList.add('cita', 'p-3');
@@ -140,22 +128,22 @@ function imprimirNotaHTML() {
         divNota.appendChild(horaParrafo);
         divNota.appendChild(detallesParrafo);
         divNota.appendChild(btnEliminar)
+
         contenedorNotas.forEach(contenedor => {
             contenedor.appendChild(divNota);
         })
-
     });
 
     reiniciarFormulario();
     reiniciarObjeto();
 }
 
+
 function eliminarNota(id) {
     console.log(id)
     localStorage.removeItem('notasCreadas'); //Remuevo el array entero del LS
     notas = notas.filter(nota => nota.id !== id)
     localStorage.setItem('notasCreadas', JSON.stringify(notas)); //Seteo el nuevo array ya sin la nota borrada
-    console.log(notas)
     imprimirNotaHTML()
 }
 
@@ -169,8 +157,6 @@ function limpiarHTML() {
 
 function reiniciarFormulario() {
     tituloInput.value = ""
-    //fechaInput.value = ""
-    //horaInput.value = ""
     detallesInput.value = ""
 }
 
