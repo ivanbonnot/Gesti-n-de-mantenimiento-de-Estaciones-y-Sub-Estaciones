@@ -6,9 +6,16 @@ const tituloInput = document.querySelector('#titulo');
 //const horaInput = document.querySelector('#hora');
 const detallesInput = document.querySelector('#detalles');
 
-const contenedorNotas = document.querySelector('#notas');
+const contenedorNotas = document.querySelectorAll('#notas');
 
-const crearNota = document.querySelector('#crear-nota');
+const crearNota = document.querySelectorAll('#crear-nota');
+
+
+crearNota.forEach(nota => {
+    nota.addEventListener('click', agregarNota);
+})
+
+
 
 let notas = [];
 
@@ -17,15 +24,18 @@ let notas = [];
 eventListeners();
 function eventListeners() {
     tituloInput.addEventListener('change', datosNota);
-   // fechaInput.addEventListener('change', datosNota);
+    // fechaInput.addEventListener('change', datosNota);
     //horaInput.addEventListener('change', datosNota);
     detallesInput.addEventListener('change', datosNota);
-    crearNota.addEventListener('click', agregarNota)
+
+    crearNota.forEach(nota => {
+        nota.addEventListener('click', agregarNota);
+    })
 
     document.addEventListener('DOMContentLoaded', () => {
         notas = JSON.parse(localStorage.getItem('notasCreadas')) || [];
         imprimirNotaHTML()
-      });
+    });
 }
 
 
@@ -34,6 +44,7 @@ const notaObj = {
     creadaPor: '',
     fecha: '',
     hora: '',
+    estacion: '',
     detalles: ''
 }
 
@@ -60,21 +71,40 @@ function imprimirNotaHTML() {
     //Para que al eliminar nota no me imprima el objeto vacio
     const { titulo, detalles } = notaObj
     if (titulo === '' || detalles === '') {
+
     } else {
+        //Agrego el nombre de la estacion al objeto
+        crearNota.forEach(nota => {
+            notaObj.estacion = nota.value
+        })
+        //Agrego hora y fecha a la nota creada, con la libreria luxon
         const horaluxon = (DateTime.now().toJSDate())
-        const hora = String(horaluxon).slice(15,24)
-        notaObj.fecha = `${DateTime.now().toLocaleString()}`;
+        const hora = String(horaluxon).slice(15, 24)
         notaObj.hora = `${hora}`;
+        notaObj.fecha = `${DateTime.now().toLocaleString()}`;
+
         const notaO = { ...notaObj }
         notas = [...notas, notaO]
         localStorage.setItem('notasCreadas', JSON.stringify(notas));
+        console.log(notaObj)
     }
+
+    contenedorNotas.forEach(contenedor => {
+        crearNota.forEach(nota => {
+            // const estacion = nota.value
+            if (contenedor.classList.contains(nota.value)) {
+                console.log('coincide')
+            }
+        })
+    })
+
+
 
     limpiarHTML();
 
     notas.forEach((nota) => {
         const { titulo, creadaPor, fecha, hora, detalles, id } = nota;
-        
+
 
         const divNota = document.createElement('div');
         divNota.classList.add('cita', 'p-3');
@@ -110,8 +140,10 @@ function imprimirNotaHTML() {
         divNota.appendChild(horaParrafo);
         divNota.appendChild(detallesParrafo);
         divNota.appendChild(btnEliminar)
+        contenedorNotas.forEach(contenedor => {
+            contenedor.appendChild(divNota);
+        })
 
-        contenedorNotas.appendChild(divNota);
     });
 
     reiniciarFormulario();
@@ -128,9 +160,11 @@ function eliminarNota(id) {
 }
 
 function limpiarHTML() {
-    while (contenedorNotas.firstChild) {
-        contenedorNotas.removeChild(contenedorNotas.firstChild);
-    }
+    contenedorNotas.forEach(contenedor => {
+        while (contenedor.firstChild) {
+            contenedor.removeChild(contenedor.firstChild);
+        }
+    })
 }
 
 function reiniciarFormulario() {
