@@ -95,7 +95,7 @@ function imprimir() {
         const { titulo, creadaPor, fecha, hora, detalles, id } = nota;
 
         const divNota = document.createElement('div');
-        divNota.classList.add('cita', 'p-3');
+        divNota.classList.add('nota', 'p-3');
         divNota.dataset.id = id;
 
         // scRIPTING DE LOS ELEMENTOS...
