@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/ivanbonnot/Gesti-n-de-mantenimiento-de-Estaciones-y-Sub-Estaciones#readme",
   "dependencies": {
-    "luxon": "^3.0.1"
+    "luxon": "^3.0.1",
+    "sweetalert2": "^11.4.29"
   }
 }

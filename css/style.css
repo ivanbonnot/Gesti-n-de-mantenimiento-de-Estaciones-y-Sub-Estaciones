@@ -131,14 +131,17 @@ main section div ul li a:hover {
 
 /* Imagen de bienvenida */
 .hero {
-  height: 85vh;
+  height: 100%;
   width: 100vw;
   background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../img/hero.jpg");
   background-color: steelblue;
   background-position: center;
   background-size: cover;
-  background-attachment: fixed;
+  background-attachment: inherit;
+}
 
+.hero.ets {
+  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("../img/hero.jpg");
 }
 
 
@@ -157,13 +160,18 @@ main section div ul li a:hover {
 
 .container {
   grid-area: main;
+  margin-top: 90px;
+  margin-bottom: 20px;
+ 
 }
 
 #contenido {
-  background-color: #00b0eb;
+  background-color: #409ebd;
   padding: 20px;
   font-size: 1.5rem;
-  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 #contenido #nueva-nota {
@@ -173,16 +181,12 @@ main section div ul li a:hover {
   align-items: center;
 }
 
-#contenido div button {
-  background-color: white;
-  color: black;
-  font-size: 1.5rem;
-}
-
 .error {
   color: red;
   text-align: center;
-  border: 1px solid rgba(253, 2, 2, 0.4);
+  font-weight: 800;
+  letter-spacing: 1px;
+  border: 2px solid rgba(253, 2, 2, 0.4);
   border-radius: 2.5px;
   padding: 5px;
   margin-top: 5px;
@@ -197,23 +201,14 @@ main section div ul li a:hover {
 
 .container {
   background-color: white;
+  padding: 0px;
 }
-
-header {
-  margin-top: 3rem;
-}
-
-header h1 {
-  color: white;
-}
-
 
 .lista-notas .notas {
   border-bottom: 1px solid #e1e1e1;
   padding: 10px 5px 5px 15px;
   
 }
-
 .lista-notas .notas:last-of-type {
   border-bottom: 0;
 }
@@ -240,7 +235,7 @@ svg {
   height: auto;
   width: 75vw;
   background-color: white;
-  margin: 10px;
+  margin: 0px 10px 10px 10px;
   padding: 5px;
   display: flex;
   flex-direction: column;
@@ -295,6 +290,7 @@ svg {
   cursor: pointer;
   text-align: center;
   font-weight: 900;
+  letter-spacing: 2px;
 }
 
 .nota .form .btn-enviar-consulta:hover {
@@ -314,23 +310,38 @@ svg {
   border: 2px solid;
 }
 
+
+
+/* Parte del listado de las notas */
+
 .listado-notas {
   width: 75vw;
   background-color: white;
-  margin: 10px;
-  border: 1px solid black;
+  margin: 10px 0px 0px 0px;
+  border: 1px black;
+  border-style: none solid solid solid;
+  border-radius: 4px;
 }
 
 .listado-notas h2 {
   font-size: 2.5rem;
+  letter-spacing: 2px;
   font-weight: bold;
-  border: 1px solid black;
+  border: 0.5px solid black;
+  border-radius: 4px 4px 0px 0px;
 }
-
 
 .notas p .detalles {
   font-size: 20px;
 }
+
+.notas .btn {
+  padding: 1px;
+  margin-top: 2px;
+}
+
+
+
 /* Comienzo de footer */
 .footer {
   bottom: 0;
@@ -362,4 +373,37 @@ svg {
   height: 30px;
   width: 30px;
   margin-left: 5px;
+}
+
+@media (max-width: 768px) {
+  .container {
+    margin-left: 20px;
+    margin-right: 0px;
+  }
+  #contenido {
+    width: 95vw;
+  }
+  .titulo {
+    font-weight: bold;
+    font-size: 2.5rem;
+   
+  }
+
+  .nota .form {
+    width: 85vw;
+  }
+
+/* Parte del listado de las notas */
+
+  .listado-notas {
+    width: 90vw;
+    
+  }
+
+}
+
+@media (max-width: 576px) {
+  #contenido {
+    margin: 0;
+  }
 }

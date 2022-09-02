@@ -23,7 +23,7 @@ function eventListeners() {
 
     document.addEventListener('DOMContentLoaded', () => {
         notas = JSON.parse(localStorage.getItem('notasCreadas')) || [];
-        imprimirNotaHTML()
+        verificacionPrevia()
     });
 }
 
@@ -50,11 +50,11 @@ function agregarNota(e) {
         mostrarError('Todos los campos son obligatorios')
     } else {
         notaObj.id = Date.now();
-        imprimirNotaHTML()
+        verificacionPrevia()
     }
 }
 
-function imprimirNotaHTML() {
+function verificacionPrevia() {
     //Para que al eliminar nota no me imprima el objeto vacio
     const { titulo, detalles } = notaObj
     if (titulo === '' || detalles === '') {
@@ -63,7 +63,7 @@ function imprimirNotaHTML() {
         //Agrego el nombre de la estacion al objeto
         crearNota.forEach(nota => {
             notaObj.estacion = nota.value
-            
+
         })
         //Agrego hora y fecha a la nota creada, con la libreria luxon
         const horaluxon = (DateTime.now().toJSDate())
@@ -81,19 +81,19 @@ function imprimirNotaHTML() {
             if (contenedor.classList.contains(nota.value)) {
                 const coincide = nota.value
                 notasEstacion = notas.filter(nota => nota.estacion === coincide)
-                imprimir()
+                imprimirNotaHTML()
             }
         })
     })
 }
 
-function imprimir() {
-    
+function imprimirNotaHTML() {
+
     limpiarHTML();
 
     notasEstacion.forEach((nota) => {
-        const { titulo, creadaPor, fecha, hora, estacion, detalles, id } = nota;  
-        
+        const { titulo, creadaPor, fecha, hora, estacion, detalles, id } = nota;
+
         const divNota = document.createElement('div');
         divNota.classList.add('notas');
         divNota.dataset.id = id;
@@ -143,11 +143,24 @@ function imprimir() {
 
 
 function eliminarNota(id) {
-    console.log(id)
-    localStorage.removeItem('notasCreadas'); //Remuevo el array entero del LS
-    notas = notas.filter(nota => nota.id !== id)
-    localStorage.setItem('notasCreadas', JSON.stringify(notas)); //Seteo el nuevo array ya sin la nota borrada
-    imprimirNotaHTML()
+    //Uso de la libreria sweetalert2 para borrar notas
+    Swal.fire({
+        title: '¿Seguro que querés eliminar la nota?',
+        text: "La nota se va a eliminar",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        cancelButtonText: 'Cancelar',
+        confirmButtonText: 'Si, borrar nota'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            localStorage.removeItem('notasCreadas'); //Remuevo el array entero del LS
+            notas = notas.filter(nota => nota.id !== id)
+            localStorage.setItem('notasCreadas', JSON.stringify(notas)); //Seteo el nuevo array ya sin la nota borrada
+            verificacionPrevia()
+        }
+    })
 }
 
 function limpiarHTML() {
