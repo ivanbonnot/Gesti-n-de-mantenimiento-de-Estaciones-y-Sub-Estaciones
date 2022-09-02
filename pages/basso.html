@@ -52,28 +52,29 @@
     <div class="container mt-5 p-5">
       <div id="contenido" class="">
         <h2 class="text-center my-1 titulo">
-          Anotaciones del la estación
+          Anotaciones de la estación Basso
         </h2>
-        <section class="contacto">
-          <form class="form">
+        <section class="nota">
+          <form class="form error-campos">
             
             <div class="name">
               <img src="../img/icons/title.png" alt="">
-              <input id="titulo" class="transf-trans" type="text" placeholder="Titulo" />
+              <input id="titulo" class="transf-trans" name="titulo" type="text" placeholder="Titulo" />
             </div>
   
             <div class="consulta">
-              <textarea id="detalles" class="transf-trans" placeholder="Detalles de la nota"></textarea>
+              <textarea id="detalles" class="transf-trans" name="detalles" placeholder="Detalles de la nota"></textarea>
             </div>
-  
-            <button class="btn-enviar-consulta" type="submit" value="Enviar">
+            
+            <button class="btn-enviar-consulta" value="basso" id="crear-nota" type="submit" value="Enviar">
               Crear nota
             </button>
+          
           </form>
         </section>
 
-        <div class="">
-          <h2 id="administra" class="text-center mb-4">Notas de la ET</h2>
+        <div class="listado-notas">
+          <h2 class="text-center pt-3">Notas</h2>
           <ul id="notas" class="basso list-group lista-notas"></ul>
         </div>
 

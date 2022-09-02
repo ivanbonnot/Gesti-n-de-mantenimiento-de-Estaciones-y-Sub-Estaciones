@@ -11,7 +11,6 @@ const crearNota = document.querySelectorAll('#crear-nota');
 let notas = [];
 let notasEstacion = [];
 
-
 // Eventos
 eventListeners();
 function eventListeners() {
@@ -64,6 +63,7 @@ function imprimirNotaHTML() {
         //Agrego el nombre de la estacion al objeto
         crearNota.forEach(nota => {
             notaObj.estacion = nota.value
+            
         })
         //Agrego hora y fecha a la nota creada, con la libreria luxon
         const horaluxon = (DateTime.now().toJSDate())
@@ -92,28 +92,31 @@ function imprimir() {
     limpiarHTML();
 
     notasEstacion.forEach((nota) => {
-        const { titulo, creadaPor, fecha, hora, detalles, id } = nota;
-
+        const { titulo, creadaPor, fecha, hora, estacion, detalles, id } = nota;  
+        
         const divNota = document.createElement('div');
-        divNota.classList.add('nota', 'p-3');
+        divNota.classList.add('notas');
         divNota.dataset.id = id;
 
         // scRIPTING DE LOS ELEMENTOS...
-        const tituloParrafo = document.createElement('h2');
-        tituloParrafo.classList.add('card-title', 'font-weight-bolder');
-        tituloParrafo.innerHTML = `${titulo}`;
+        const tituloParrafo = document.createElement('h3');
+        tituloParrafo.innerHTML = `Titulo: ${titulo}`;
 
         const creadaPorParrafo = document.createElement('p');
-        creadaPorParrafo.innerHTML = `<span class="font-weight-bolder fs-5">Creada por: </span> ${creadaPor}`;
+        creadaPorParrafo.classList.add('fs-5')
+        creadaPorParrafo.innerHTML = `<span>Creada por: </span> ${creadaPor}`;
 
         const fechaParrafo = document.createElement('p');
-        fechaParrafo.innerHTML = `<span class="font-weight-bolder fs-5">Fecha: </span> ${fecha}`;
+        fechaParrafo.classList.add('fs-5')
+        fechaParrafo.innerHTML = `<span>Fecha: </span> ${fecha}`;
 
         const horaParrafo = document.createElement('p');
-        horaParrafo.innerHTML = `<span class="font-weight-bolder fs-5">Hora: </span> ${hora}`;
+        horaParrafo.classList.add('fs-5')
+        horaParrafo.innerHTML = `<span>Hora: </span> ${hora}`;
 
         const detallesParrafo = document.createElement('p');
-        detallesParrafo.innerHTML = `<span class="font-weight-bolder">Detalles: </span> ${detalles}`;
+        detallesParrafo.classList.add('detalles', 'fs-4')
+        detallesParrafo.innerHTML = `<span>Detalles: </span> ${detalles}`;
 
         // Agregar un botón de eliminar...
         const btnEliminar = document.createElement('button');
@@ -169,8 +172,9 @@ function reiniciarObjeto() {
 }
 
 function mostrarError(mensaje) {
-    const errorDiv = document.querySelector(".error");
+    const errorDiv = document.querySelector(".error-campos");
     const error = document.createElement("div");
+    error.classList.add("error")
     error.innerHTML = `${mensaje} `;
 
     errorDiv.appendChild(error);

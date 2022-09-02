@@ -160,7 +160,7 @@ main section div ul li a:hover {
 }
 
 #contenido {
-  background-color: #006ea6;
+  background-color: #00b0eb;
   padding: 20px;
   font-size: 1.5rem;
   margin-top: 20px;
@@ -179,7 +179,7 @@ main section div ul li a:hover {
   font-size: 1.5rem;
 }
 
-.error div {
+.error {
   color: red;
   text-align: center;
   border: 1px solid rgba(253, 2, 2, 0.4);
@@ -207,29 +207,22 @@ header h1 {
   color: white;
 }
 
-div .agregar-nota {
-  /* display: flex; */
-}
 
-.lista-notas .nota {
+.lista-notas .notas {
   border-bottom: 1px solid #e1e1e1;
-  padding: 2rem;
-  padding-bottom: 3rem;
+  padding: 10px 5px 5px 15px;
+  
 }
 
-.lista-notas .nota:last-of-type {
+.lista-notas .notas:last-of-type {
   border-bottom: 0;
 }
 
-.lista-notas .nota p {
+.lista-notas .notas p {
   margin: 0;
 }
 
-.lista-notas .nota button {
-  margin-top: 1rem !important;
-}
-
-.lista-notas .nota span {
+.lista-notas .notas span {
   font-weight: bold;
 }
 
@@ -237,13 +230,13 @@ svg {
   width: 21px;
 }
 
-.contacto {
+.nota {
   height: auto;
   display: flex;
   justify-content: center;
 }
 
-.contacto .form {
+.nota .form {
   height: auto;
   width: 75vw;
   background-color: white;
@@ -256,56 +249,57 @@ svg {
   overflow-x: hidden;
 }
 
-.contacto .form p {
+.nota .form p {
   font-size: 1.8rem;
   font-weight: 500;
   margin: 20px 0px 0px 15px;
 }
 
-.contacto .form img {
+.nota .form img {
   height: 30px;
   width: 30px;
   display: flex;
   border: 1px solid black;
 }
 
-.contacto .form input {
+.nota .form input {
   height: 30px;
-  width: 77.5%;
+  width: 96%;
   font-size: 1.8rem;
   margin: 5px 10px 0px 0px;
-  
 }
 
-.contacto .form .name {
+.nota .form .name {
   display: flex;
   flex-direction: row;
   align-items: flex-end;
 }
 
-.contacto .form .consulta textarea {
-  height: 25vh; 
-  width: 80%;
-  margin: 5px;
+.nota .form .consulta textarea {
+  height: 20vh; 
+  width: 98%;
+  margin: 5px 5px 5px 5px;
   padding: 5px;
   font-size: 1.5rem;
 }
 
-.contacto .form .btn-enviar-consulta {
+ .form .btn-enviar-consulta {
   height: 40px;
   width: 200px;
   background: lightblue;
-  margin: 10px;
+  margin: 0px 10px 10px 10px;
   border: 0;
   border-radius: 5px;
   transition: ease-in-out 0.3s;
   font-size: 1.5rem;
   cursor: pointer;
   text-align: center;
+  font-weight: 900;
 }
 
-.contacto .form .btn-enviar-consulta:hover {
+.nota .form .btn-enviar-consulta:hover {
   background-color: steelblue;
+  color: white;
 }
 
 .transf:focus {
@@ -316,10 +310,27 @@ svg {
 
 .transf-trans:focus {
   transition: ease-in-out 0.3s;
-  transform: scale(1.01) translateX(0%);
+  transform: scale(1.005) translateX(0%);
   border: 2px solid;
 }
 
+.listado-notas {
+  width: 75vw;
+  background-color: white;
+  margin: 10px;
+  border: 1px solid black;
+}
+
+.listado-notas h2 {
+  font-size: 2.5rem;
+  font-weight: bold;
+  border: 1px solid black;
+}
+
+
+.notas p .detalles {
+  font-size: 20px;
+}
 /* Comienzo de footer */
 .footer {
   bottom: 0;
