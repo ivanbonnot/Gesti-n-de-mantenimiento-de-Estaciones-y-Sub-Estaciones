@@ -8,8 +8,12 @@ const contenedorNotas = document.querySelectorAll('#notas');
 
 const crearNota = document.querySelectorAll('#crear-nota');
 
+const notasElim = document.querySelectorAll('.notasBorradas')
+
 let notas = [];
 let notasEstacion = [];
+let notasEliminadas = [];
+let notasEliminadasEstacion = [];
 
 // Eventos
 eventListeners();
@@ -23,6 +27,7 @@ function eventListeners() {
 
     document.addEventListener('DOMContentLoaded', () => {
         notas = JSON.parse(localStorage.getItem('notasCreadas')) || [];
+        notasEliminadas = JSON.parse(localStorage.getItem('notasEliminadas')) || [];
         verificacionPrevia()
     });
 }
@@ -81,7 +86,9 @@ function verificacionPrevia() {
             if (contenedor.classList.contains(nota.value)) {
                 const coincide = nota.value
                 notasEstacion = notas.filter(nota => nota.estacion === coincide)
+                notasEliminadasEstacion = notasEliminadas.filter(nota => nota.estacion === coincide)
                 imprimirNotaHTML()
+                notasBorradas()
             }
         })
     })
@@ -98,7 +105,6 @@ function imprimirNotaHTML() {
         divNota.classList.add('notas');
         divNota.dataset.id = id;
 
-        // scRIPTING DE LOS ELEMENTOS...
         const tituloParrafo = document.createElement('h3');
         tituloParrafo.innerHTML = `Titulo: ${titulo}`;
 
@@ -157,8 +163,50 @@ function eliminarNota(id) {
         if (result.isConfirmed) {
             localStorage.removeItem('notasCreadas'); //Remuevo el array entero del LS
             notas = notas.filter(nota => nota.id !== id)
+            notasEliminadas = notas.filter(nota => nota.id)
             localStorage.setItem('notasCreadas', JSON.stringify(notas)); //Seteo el nuevo array ya sin la nota borrada
+            localStorage.setItem('notasEliminadas', JSON.stringify(notasEliminadas));
+            console.log(notasEliminadas)
+            console.log(notasEliminadas.length)
+            notasBorradas()
             verificacionPrevia()
+        }
+    })
+}
+
+function notasBorradas() {
+
+    limpiarHTMLnotasBorradas();
+
+    const numbers = ['Two', 'Three', 'Four', 'Five', 'Six', 'sSeven', 'Eight', 'Nine', 'Ten', 'Eleven', 'Twelve', 'Thirteen', 'Furteen', 'Fifteen', 'Sixteen', 'Seventeen', 'Eighteen', 'Nineteen'];
+    notasEliminadasEstacion.forEach((nota) => {
+        for (let i = 0; i < notasEliminadasEstacion.length; i++) {
+            console.log(numbers[i])
+            const { titulo, creadaPor, fecha, hora, estacion, detalles, id } = nota;
+            const divAcordeon = document.createElement('div')
+            divAcordeon.innerHTML = `
+            <div class="accordion" id="accordionPanelsStayOpenExample">
+             <div class="accordion-item">
+              <h2 class="accordion-header" id="panelsStayOpen-heading${numbers[i]}">
+                <button class="accordion-button collapsed icono-user" type="button" data-bs-toggle="collapse"
+                  data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false"
+                  aria-controls="panelsStayOpen-collapse${numbers[i]}">
+                  <h4 class="ms-4">${titulo}</h4>
+                </button>
+              </h2>
+              <div id="panelsStayOpen-collapse${numbers[i]}" class="accordion-collapse collapse"
+                aria-labelledby="panelsStayOpen-heading${numbers[i]}">
+                <div class="accordion-body">
+                <span>Fecha: </span> ${fecha}
+                <span>Detalles: </span> ${detalles}
+                </div>
+              </div>
+             </div>
+            </div>`
+            notasElim.forEach(elim => {
+                elim.appendChild(divAcordeon)
+            })
+
         }
     })
 }
@@ -167,6 +215,14 @@ function limpiarHTML() {
     contenedorNotas.forEach(contenedor => {
         while (contenedor.firstChild) {
             contenedor.removeChild(contenedor.firstChild);
+        }
+    })
+}
+
+function limpiarHTMLnotasBorradas() {
+    notasElim.forEach(eliminadas => {
+        while (eliminadas.firstChild) {
+            eliminadas.removeChild(eliminadas.firstChild);
         }
     })
 }

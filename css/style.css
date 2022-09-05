@@ -189,7 +189,11 @@ main section div ul li a:hover {
   grid-area: main;
   margin-top: 90px;
   margin-bottom: 20px;
- 
+  background-color: #409ebd;
+  padding: 0px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 #contenido {
@@ -224,11 +228,6 @@ main section div ul li a:hover {
   font-size: 3rem;
   text-transform: uppercase;
   color: white;
-}
-
-.container {
-  background-color: white;
-  padding: 0px;
 }
 
 .lista-notas .notas {
@@ -349,6 +348,7 @@ svg {
 }
 
 .listado-notas h2 {
+  margin-bottom: 0px;
   font-size: 2.5rem;
   letter-spacing: 2px;
   font-weight: bold;
@@ -427,13 +427,11 @@ div .notasEliminadas .accordion {
 
 @media (max-width: 768px) {
 
-  .container {
-    margin-left: 20px;
-    margin-right: 20px;
-  }
   #contenido {
     width: 95vw;
+    margin: 0;
   }
+
   .titulo {
     font-weight: bold;
     font-size: 2.5rem;
