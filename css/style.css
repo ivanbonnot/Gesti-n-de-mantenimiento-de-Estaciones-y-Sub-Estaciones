@@ -14,7 +14,7 @@ html {
 
 body {
   font-family: 'Roboto', sans-serif;
-  background-color: white;
+  background-color:#006ea6;
   overflow-x: hidden;
 }
 
@@ -107,9 +107,8 @@ main section div ul {
 }
 
 main section div ul li {
-
   margin-top: 5px;
-  font-size: 2rem;
+  font-size: 2.2em;
   list-style: none;
   text-decoration: none;
 }
@@ -122,11 +121,36 @@ main section div ul li img {
 main section div ul li a {
   color: white;
   text-decoration: none;
+  letter-spacing: 2px;
+  font-weight: 700;
   transition: all 0.3s ease-in-out;
 }
 
 main section div ul li a:hover {
   color: lightblue;
+}
+.estaciones {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.estaciones h2 {
+  color: white;
+  letter-spacing: 2px;
+  font-weight: 700;
+}
+
+.sub-estaciones {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.sub-estaciones h2 {
+  color: white;
+  letter-spacing: 2px;
+  font-weight: 700;
 }
 
 /* Imagen de bienvenida */
@@ -142,6 +166,9 @@ main section div ul li a:hover {
 
 .hero.ets {
   background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("../img/hero.jpg");
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 
@@ -318,8 +345,6 @@ svg {
   width: 75vw;
   background-color: white;
   margin: 10px 0px 0px 0px;
-  border: 1px black;
-  border-style: none solid solid solid;
   border-radius: 4px;
 }
 
@@ -339,6 +364,31 @@ svg {
   padding: 1px;
   margin-top: 2px;
 }
+
+/* Notas eliminadas */
+div .notasEliminadas {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 90vw;
+  height: auto;
+  background-color: #006ea6;
+  margin-bottom: 10px;
+}
+
+div .notasEliminadas h3 {
+  margin: 5px;
+  font-size: 2.5rem;
+  letter-spacing: 2px;
+  font-weight: 300;
+  color: white;
+}
+
+div .notasEliminadas .accordion {
+  width: 75vw;
+  margin: 10px;
+}
+
 
 
 
@@ -376,9 +426,10 @@ svg {
 }
 
 @media (max-width: 768px) {
+
   .container {
     margin-left: 20px;
-    margin-right: 0px;
+    margin-right: 20px;
   }
   #contenido {
     width: 95vw;
@@ -386,18 +437,14 @@ svg {
   .titulo {
     font-weight: bold;
     font-size: 2.5rem;
-   
   }
-
   .nota .form {
     width: 85vw;
   }
 
 /* Parte del listado de las notas */
-
   .listado-notas {
     width: 90vw;
-    
   }
 
 }
@@ -406,4 +453,14 @@ svg {
   #contenido {
     margin: 0;
   }
+  .nota .form .consulta textarea {
+    min-height: 150px;
+  }
+  .listado-notas h2 {
+    font-size: 2rem;
+}
+}
+
+@media (max-width: 576px) {
+
 }
