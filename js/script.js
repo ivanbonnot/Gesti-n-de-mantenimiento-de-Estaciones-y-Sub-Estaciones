@@ -86,9 +86,9 @@ function verificacionPrevia() {
             if (contenedor.classList.contains(nota.value)) {
                 const coincide = nota.value
                 notasEstacion = notas.filter(nota => nota.estacion === coincide)
-                notasEliminadasEstacion = notasEliminadas.filter(nota => nota.estacion === coincide)
+                notasEliminadasEstacion = notasEliminadas.filter((nota) => nota.estacion === coincide)
                 imprimirNotaHTML()
-                notasBorradas()
+                notasBorradasHTML()
             }
         })
     })
@@ -162,34 +162,44 @@ function eliminarNota(id) {
     }).then((result) => {
         if (result.isConfirmed) {
             localStorage.removeItem('notasCreadas'); //Remuevo el array entero del LS
+            let notasEliminadasArray = [];
+
+            notasEliminadasArray = notas.filter(nota => nota.id == id)
+            //notasEliminadas = [...notasEliminadas, notasEliminadasArray]
+            notasEliminadas = notasEliminadas.concat(notasEliminadasArray)
+
             notas = notas.filter(nota => nota.id !== id)
-            notasEliminadas = notas.filter(nota => nota.id)
             localStorage.setItem('notasCreadas', JSON.stringify(notas)); //Seteo el nuevo array ya sin la nota borrada
             localStorage.setItem('notasEliminadas', JSON.stringify(notasEliminadas));
-            console.log(notasEliminadas)
-            console.log(notasEliminadas.length)
-            notasBorradas()
+
             verificacionPrevia()
         }
     })
 }
 
-function notasBorradas() {
+function notasBorradasHTML() {
+    console.log(notasEliminadas)
+    console.log(notasEliminadasEstacion)
+    console.log(notasEliminadasEstacion.length)
+    limpiarHTMLNotasBorradas();
 
-    limpiarHTMLnotasBorradas();
+    const numbers = ['One', 'Two', 'Three', 'Four', 'Five', 'Six', 'sSeven', 'Eight', 'Nine', 'Ten', 'Eleven', 'Twelve', 'Thirteen', 'Furteen', 'Fifteen', 'Sixteen', 'Seventeen', 'Eighteen', 'Nineteen'];
+    //for (let i = 1; i <= notasEliminadasEstacion.length; i++) {
 
-    const numbers = ['Two', 'Three', 'Four', 'Five', 'Six', 'sSeven', 'Eight', 'Nine', 'Ten', 'Eleven', 'Twelve', 'Thirteen', 'Furteen', 'Fifteen', 'Sixteen', 'Seventeen', 'Eighteen', 'Nineteen'];
+    let i = 0
     notasEliminadasEstacion.forEach((nota) => {
-        for (let i = 0; i < notasEliminadasEstacion.length; i++) {
-            console.log(numbers[i])
-            const { titulo, creadaPor, fecha, hora, estacion, detalles, id } = nota;
-            const divAcordeon = document.createElement('div')
-            divAcordeon.innerHTML = `
+
+        i++
+        console.log(numbers[i])
+        console.log(i)
+        const { titulo, creadaPor, fecha, hora, estacion, detalles, id } = nota;
+        const divAcordeon = document.createElement('div')
+        divAcordeon.innerHTML = `
             <div class="accordion" id="accordionPanelsStayOpenExample">
              <div class="accordion-item">
               <h2 class="accordion-header" id="panelsStayOpen-heading${numbers[i]}">
                 <button class="accordion-button collapsed icono-user" type="button" data-bs-toggle="collapse"
-                  data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false"
+                  data-bs-target="#panelsStayOpen-collapse${numbers[i]}" aria-expanded="false"
                   aria-controls="panelsStayOpen-collapse${numbers[i]}">
                   <h4 class="ms-4">${titulo}</h4>
                 </button>
@@ -203,12 +213,11 @@ function notasBorradas() {
               </div>
              </div>
             </div>`
-            notasElim.forEach(elim => {
-                elim.appendChild(divAcordeon)
-            })
-
-        }
+        notasElim.forEach(elim => {
+            elim.appendChild(divAcordeon)
+        })
     })
+
 }
 
 function limpiarHTML() {
@@ -219,7 +228,7 @@ function limpiarHTML() {
     })
 }
 
-function limpiarHTMLnotasBorradas() {
+function limpiarHTMLNotasBorradas() {
     notasElim.forEach(eliminadas => {
         while (eliminadas.firstChild) {
             eliminadas.removeChild(eliminadas.firstChild);
