@@ -162,9 +162,9 @@ function eliminarNota(id) {
     }).then((result) => {
         if (result.isConfirmed) {
             localStorage.removeItem('notasCreadas'); //Remuevo el array entero del LS
-            let notasEliminadasArray = [];
+           // let notasEliminadasArray = [];
 
-            notasEliminadasArray = notas.filter(nota => nota.id == id)
+            let notasEliminadasArray = notas.filter(nota => nota.id == id)
             //notasEliminadas = [...notasEliminadas, notasEliminadasArray]
             notasEliminadas = notasEliminadas.concat(notasEliminadasArray)
 
@@ -178,9 +178,7 @@ function eliminarNota(id) {
 }
 
 function notasBorradasHTML() {
-    console.log(notasEliminadas)
-    console.log(notasEliminadasEstacion)
-    console.log(notasEliminadasEstacion.length)
+    
     limpiarHTMLNotasBorradas();
 
     const numbers = ['One', 'Two', 'Three', 'Four', 'Five', 'Six', 'sSeven', 'Eight', 'Nine', 'Ten', 'Eleven', 'Twelve', 'Thirteen', 'Furteen', 'Fifteen', 'Sixteen', 'Seventeen', 'Eighteen', 'Nineteen'];
@@ -190,10 +188,10 @@ function notasBorradasHTML() {
     notasEliminadasEstacion.forEach((nota) => {
 
         i++
-        console.log(numbers[i])
-        console.log(i)
         const { titulo, creadaPor, fecha, hora, estacion, detalles, id } = nota;
         const divAcordeon = document.createElement('div')
+
+        //Accordion de Bootstrap implementado de forma dinamica
         divAcordeon.innerHTML = `
             <div class="accordion" id="accordionPanelsStayOpenExample">
              <div class="accordion-item">
@@ -213,10 +211,19 @@ function notasBorradasHTML() {
               </div>
              </div>
             </div>`
+
         notasElim.forEach(elim => {
             elim.appendChild(divAcordeon)
         })
     })
+
+    //Borro cada 5 dias el item mas antiguo del array de notas eliminadas
+    //Equivalente a 5 dias en ms 432000000
+    setInterval(() => {
+        localStorage.removeItem('notasEliminadas')
+        notasEliminadas.shift()
+        localStorage.setItem('notasEliminadas', JSON.stringify(notasEliminadas));
+    }, 432000000);
 
 }
 
