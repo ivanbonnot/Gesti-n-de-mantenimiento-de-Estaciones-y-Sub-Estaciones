@@ -165,7 +165,7 @@ function eliminarNota(id) {
            // let notasEliminadasArray = [];
 
             let notasEliminadasArray = notas.filter(nota => nota.id == id)
-            //notasEliminadas = [...notasEliminadas, notasEliminadasArray]
+            
             notasEliminadas = notasEliminadas.concat(notasEliminadasArray)
 
             notas = notas.filter(nota => nota.id !== id)
@@ -221,6 +221,16 @@ function notasBorradasHTML() {
     //Equivalente a 5 dias en ms 432000000
     setInterval(() => {
         localStorage.removeItem('notasEliminadas')
+
+        switch (notasEliminadas.length) {
+            case value:
+                
+                break;
+        
+            default:
+                break;
+        }
+
         notasEliminadas.shift()
         localStorage.setItem('notasEliminadas', JSON.stringify(notasEliminadas));
     }, 432000000);
