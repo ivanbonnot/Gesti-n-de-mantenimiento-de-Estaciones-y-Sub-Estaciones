@@ -10,6 +10,7 @@ const crearNota = document.querySelectorAll('#crear-nota');
 
 const notasElim = document.querySelectorAll('.notasBorradas')
 
+
 let notas = [];
 let notasEstacion = [];
 let notasEliminadas = [];
@@ -24,6 +25,7 @@ function eventListeners() {
     crearNota.forEach(nota => {
         nota.addEventListener('click', agregarNota);
     })
+
 
     document.addEventListener('DOMContentLoaded', () => {
         notas = JSON.parse(localStorage.getItem('notasCreadas')) || [];
@@ -65,10 +67,10 @@ function verificacionPrevia() {
     if (titulo === '' || detalles === '') {
 
     } else {
+
         //Agrego el nombre de la estacion al objeto
         crearNota.forEach(nota => {
             notaObj.estacion = nota.value
-
         })
         //Agrego hora y fecha a la nota creada, con la libreria luxon
         const horaluxon = (DateTime.now().toJSDate())

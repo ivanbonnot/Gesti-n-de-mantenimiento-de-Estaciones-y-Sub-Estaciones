@@ -1,6 +1,6 @@
 @charset "UTF-8";
 @import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Covered+By+Your+Grace&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans&display=swap");
 
 * {
   margin: 0;
@@ -14,7 +14,7 @@ html {
 
 body {
   font-family: 'Roboto', sans-serif;
-  background-color:#006ea6;
+  background-color:#409ebd;
   overflow-x: hidden;
 }
 
@@ -56,8 +56,9 @@ body {
 
 .header nav a h1 {
   margin: 0px 0px 0 10px;
+  padding-top: 5px;
   padding-left: 20px;
-  font-family: 'Arial';
+  font-family: 'Open Sans', sans-serif;
   font-size: 2rem;
   margin-left: 20px;
   font-weight: lighter;
@@ -107,38 +108,55 @@ main section div ul {
 }
 
 main section div ul li {
+  
   margin-top: 5px;
   font-size: 2.2em;
   list-style: none;
   text-decoration: none;
 }
 
-main section div ul li img {
+main section div img {
   height: 30px;
   width: 30px;
 }
 
 main section div ul li a {
-  color: white;
+  font-family: 'Open Sans', sans-serif;
+  color: rgb(255, 240, 240);
   text-decoration: none;
-  letter-spacing: 2px;
-  font-weight: 700;
+  letter-spacing: 3px;
+  font-weight: 400;
   transition: all 0.3s ease-in-out;
 }
 
 main section div ul li a:hover {
-  color: lightblue;
+  color: rgb(0, 158, 211);
+  font-weight: 800;
 }
+
 .estaciones {
   display: flex;
   flex-direction: row;
   align-items: center;
 }
 
-.estaciones h2 {
+.estaciones .ets {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.estaciones .ets img {
+  margin: 0px 10px 25px 0px;
+  height: 40px;
+  width: 40px;
+}
+
+.estaciones .ets h2 {
   color: white;
   letter-spacing: 2px;
-  font-weight: 700;
+  font-weight: 500;
+  font-size: 2.5rem;
 }
 
 .sub-estaciones {
@@ -147,11 +165,24 @@ main section div ul li a:hover {
   align-items: center;
 }
 
-.sub-estaciones h2 {
+.sub-estaciones .sets {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.sub-estaciones .sets h2 {
   color: white;
   letter-spacing: 2px;
-  font-weight: 700;
+  font-weight: 500;
+  font-size: 2.5rem;
 }
+.sub-estaciones .sets img {
+  margin: 0px 10px 25px 0px;
+  height: 40px;
+  width: 40px;
+}
+
 
 /* Imagen de bienvenida */
 .hero {
@@ -397,8 +428,8 @@ div .notasEliminadas .accordion {
   bottom: 0;
   left: 0;
   grid-area: footer;
-  background-color: #006ea6;
-  height: 110px;
+  background-color: #409ebd;
+  height: 60px;
   width: 100%;
   color: #EAEAEA;
   display: grid;
@@ -410,7 +441,7 @@ div .notasEliminadas .accordion {
 }
 
 .footer .contacto-desarrollador {
-  height: 100px;
+  height: 60px;
   width: 120px;
   grid-area: desarrollador;
   display: flex;
