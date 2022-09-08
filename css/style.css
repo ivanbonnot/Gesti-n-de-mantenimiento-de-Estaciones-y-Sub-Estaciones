@@ -55,13 +55,12 @@ body {
 }
 
 .header nav a h1 {
-  margin: 0px 0px 0 10px;
+  margin: 0px 20px 0 10px;
   padding-top: 5px;
   padding-left: 20px;
   font-family: 'Open Sans', sans-serif;
   font-size: 2rem;
-  margin-left: 20px;
-  font-weight: lighter;
+  font-weight: 800;
 }
 
 .header nav ul {
@@ -108,11 +107,11 @@ main section div ul {
 }
 
 main section div ul li {
-  
   margin-top: 5px;
-  font-size: 2.2em;
+  font-size: 2.2rem;
   list-style: none;
   text-decoration: none;
+  background-color: rgba(0, 0, 0, 0.384);
 }
 
 main section div img {
@@ -157,6 +156,7 @@ main section div ul li a:hover {
   letter-spacing: 2px;
   font-weight: 500;
   font-size: 2.5rem;
+  background-color: rgba(0, 0, 0, 0.384);
 }
 
 .sub-estaciones {
@@ -176,7 +176,9 @@ main section div ul li a:hover {
   letter-spacing: 2px;
   font-weight: 500;
   font-size: 2.5rem;
+  background-color: rgba(0, 0, 0, 0.384);
 }
+
 .sub-estaciones .sets img {
   margin: 0px 10px 25px 0px;
   height: 40px;
@@ -456,7 +458,76 @@ div .notasEliminadas .accordion {
   margin-left: 5px;
 }
 
+@media (max-width: 1000px) {
+  .header nav a h1 {
+    margin: 0px 5px 0 10px;
+    padding-top: 5px;
+    padding-left: 5px;
+    font-size: 1.8rem;
+  }
+  main section div ul {
+    margin-top: 25px;
+    padding-left: 5px;
+  }
+
+  main section div ul li {
+    margin-top: 2px;
+    font-size: 1.8rem;
+    list-style: none;
+    text-decoration: none;
+  }
+
+  .estaciones .ets h2 {
+    letter-spacing: 1px;
+    font-size: 2rem;
+  }
+
+  .sub-estaciones .sets h2 {
+    letter-spacing: 1px;
+    font-size: 2rem;
+  }
+  
+}
+@media (max-width: 868px) {
+
+  .header nav .logo-size {
+    height: 40px;
+    width: 100px;
+  }
+  .header nav a h1 {
+    padding-top: 5px;
+    padding-left: 5px;
+    font-size: 1.8rem;
+  }
+  .header nav ul li a {
+    margin-right: 5px;
+    padding: 7px 5px;
+    font-size: 1.6rem;
+    letter-spacing: 0px;
+  }
+
+}
+
+
+@media (max-width: 800px) {
+  main section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
 @media (max-width: 768px) {
+  .navbar-nav .nav-link {
+    padding: 5px 0px 0px 10px ;
+    font-size: 2rem;
+  }
+  .header nav a h1 {
+    padding-left: 20px;
+    
+  }
+ 
 
   #contenido {
     width: 95vw;
