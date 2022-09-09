@@ -576,6 +576,22 @@ div .notasEliminadas .accordion {
 }
 
 @media (max-width: 500px) {
+  .header nav a {
+    flex-direction: column;
+    justify-items: center;
+    align-items: flex-start;
+    overflow: auto;
+    height: auto;
+  }
+
+  
+
+  .header nav a h1 {
+    margin: 0px 20px 0 10px;
+    padding-left: 5px;
+    font-size: 2rem;
+    word-wrap: break-word;
+  }
 
   main section div ul {
     margin-top: 0px;
@@ -584,10 +600,10 @@ div .notasEliminadas .accordion {
 
   .estaciones {
     flex-direction: column;
-    margin-top: 100px;
+    margin-top: 120px;
   }
   .sub-estaciones {
     flex-direction: column;
-    margin: 20px 0px 0px 6px;
+    margin: 20px 0px 20px 6px;
   }
 }
