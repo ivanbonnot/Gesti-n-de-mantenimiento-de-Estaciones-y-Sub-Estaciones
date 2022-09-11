@@ -17,7 +17,7 @@
       <nav class="navbar navbar-expand-md navbar-dark bg-dark">
         <div class="container-fluid">
           <div class="d-flex flex-row">
-            <a class="navbar-brand" href="../index.html">
+            <a class="navbar-brand" href="#">
               <img class="transf-icons logo-size" src="../img/logo.png" alt="" width="75" height="75">
               <h1 class="navbar-brand marca transf-icons" href="#">Gestión de mantenimiento de Estaciones y Sub
                 Estaciones</h1>
@@ -47,64 +47,53 @@
       </nav>
     </header>
 
+    
 
-    <div class="hero ets">
-      <div class="container">
-        <div id="contenido" class="">
-          <h2 class="text-center my-1 titulo">
-            Anotaciones de la estación Basso
-          </h2>
-          <section class="nota">
-            <form class="form error-campos">
+    <div class="container mt-5 p-5">
+      <div id="contenido" class="">
+        <h2 class="text-center my-1 titulo">
+          Anotaciones de la estación Basso
+        </h2>
+        <section class="nota">
+          <form class="form error-campos">
+            
+            <div class="name">
+              <img src="../img/icons/title.png" alt="">
+              <input id="titulo" class="transf-trans" name="titulo" type="text" placeholder="Titulo" />
+            </div>
+  
+            <div class="consulta">
+              <textarea id="detalles" class="transf-trans" name="detalles" placeholder="Detalles de la nota"></textarea>
+            </div>
+            
+            <button class="btn-enviar-consulta" value="basso" id="crear-nota" type="submit" value="Enviar">
+              Crear nota
+            </button>
+          
+          </form>
+        </section>
 
-              <div class="name">
-                <img src="../img/icons/title.png" alt="">
-                <input id="titulo" class="transf-trans" name="titulo" type="text" placeholder="Titulo" />
-              </div>
-
-              <div class="consulta">
-                <textarea id="detalles" class="transf-trans" name="detalles"
-                  placeholder="Detalles de la nota"></textarea>
-              </div>
-
-              <button class="btn-enviar-consulta" value="basso" id="crear-nota" type="submit" value="Enviar">
-                Crear nota
-              </button>
-
-            </form>
-          </section>
-
-          <div class="listado-notas">
-            <h2 class="text-center pt-3">Notas</h2>
-            <ul id="notas" class="basso list-group lista-notas"></ul>
-          </div>
-
+        <div class="listado-notas">
+          <h2 class="text-center pt-3">Notas</h2>
+          <ul id="notas" class="basso list-group lista-notas"></ul>
         </div>
+
       </div>
-      
-      <div class="notasEliminadas">
-        <h3>Notas eliminadas</h3>
-          <div class="notasBorradas">
-
-          </div>
-      </div>
-
-      <footer class="footer">
-        <div class="contacto-desarrollador mb-4">
-          <p class="fs-4 text-center text-dark">Contactar desarrollador</p>
-          <a href="https://es.qr-code-generator.com/" target="_blank"><img src="../img/icons/codigo-qr.png" alt="qr"
-              class="transf-icons"></a>
-          <a href="https://linkedin.com" target="_blank"><img src="../img/icons/linkedin.png" alt="linkedin"
-              class="transf-icons"></a>
-        </div>
-      </footer>
-
     </div>
+
+    <footer class="footer">
+      <div class="contacto-desarrollador mb-4">
+        <p class="fs-4 text-center text-dark">Contactar desarrollador</p>
+        <a href="https://es.qr-code-generator.com/" target="_blank"><img src="../img/icons/codigo-qr.png" alt="qr"
+            class="transf-icons"></a>
+        <a href="https://linkedin.com" target="_blank"><img src="../img/icons/linkedin.png" alt="linkedin"
+            class="transf-icons"></a>
+      </div>
+    </footer>
+
   </div>
 
   <script type="module" src="../js/script.js"></script>
-  <script src="../js/bootstrap.bundle.min.js"></script>
-  <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <script src="https://cdnout.com/luxon"></script>
   <script src="https://cdnout.com/jquery/"></script>
 </body>

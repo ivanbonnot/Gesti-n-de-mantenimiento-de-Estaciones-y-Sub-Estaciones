@@ -82,7 +82,7 @@ function verificacionPrevia() {
         localStorage.setItem('notasCreadas', JSON.stringify(notas));
     }
 
-    //Para imprimir cada nota en la estacion que corresponde
+    //Paraimprimir cada nota en la estacion que corresponde
     contenedorNotas.forEach(contenedor => {
         crearNota.forEach(nota => {
             if (contenedor.classList.contains(nota.value)) {

@@ -1,183 +1,312 @@
 <!DOCTYPE html>
 <html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gestión de mantenimiento de Estaciones y Sub Estaciones</title>
+    <link
+      rel="shortcut icon"
+      href="./img/icons/favicon.ico"
+      type="image/x-icon"
+    />
+    <link href="./css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="./css/style.css" />
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Gestión de mantenimiento de Estaciones y Sub Estaciones</title>
-  <link rel="shortcut icon" href="./img/icons/favicon.ico" type="image/x-icon" />
-  <link href="./css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="./css/style.css" />
-</head>
-
-<body>
-
-  <div class="grid-container">
-    <header class="header">
-      <nav class="navbar navbar-expand-md navbar-dark bg-dark">
-        <div class="container-fluid">
-          <div class="d-flex flex-column">
-            <a class="navbar-brand" href="#">
-              <img class="transf-icons logo-size" src="./img/logo.png" alt="" width="75" height="75">
-              <h1 class="navbar-brand marca transf-icons" href="#"><h2>Gestión de mantenimiento </h2><h2>de Estaciones y Sub
-                Estaciones</h2></h1>
-            </a>
+  <body>
+    <div class="grid-container">
+      <header class="header">
+        <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+          <div class="container-fluid">
+            <div class="d-flex flex-column">
+              <a class="navbar-brand" href="#">
+                <img
+                  class="transf-icons logo-size"
+                  src="./img/logo.png"
+                  alt=""
+                  width="75"
+                  height="75"
+                />
+                <h1 class="navbar-brand marca transf-icons" href="#">
+                  <h2>Gestión de mantenimiento</h2>
+                  <h2>de Estaciones y Sub Estaciones</h2>
+                </h1>
+              </a>
+            </div>
+            <button
+              class="navbar-toggler mx-auto"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#navbarNav"
+              aria-controls="navbarNav"
+              aria-expanded="false"
+              aria-label="Toggle navigation"
+            >
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse mx-auto" id="navbarNav">
+              <ul class="navbar-nav">
+                <li class="nav-item">
+                  <a class="nav-link" href="./pages/formulario.html">Cambios</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="./pages/contacto.html">Listas</a>
+                </li>
+              </ul>
+            </div>
           </div>
-          <button class="navbar-toggler mx-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse mx-auto" id="navbarNav">
-            <ul class="navbar-nav">
-              <li class="nav-item">
-                <a class="nav-link" href="./pages/formulario.html">Cambios</a>
+        </nav>
+      </header>
+
+      <main>
+        <section class="hero">
+          <div class="estaciones">
+            <div class="ets">
+              <img src="./img/icons/power-plant.png" alt="" />
+              <h2>Estaciones:</h2>
+            </div>
+            <ul>
+              <li>
+                <img src="./img/icons/thunderbolt.png" alt="" />
+                <a class="na" href="./pages/et/basso.html">Basso</a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link" href="./pages/contacto.html">Listas</a>
+              <li>
+                <img src="./img/icons/thunderbolt.png" alt="" />
+                <a class="na" href="./pages/et/chajari.html">Chajari</a>
+              </li>
+              <li>
+                <img src="./img/icons/thunderbolt.png" alt="" />
+                <a class="na" href="./pages/et/colon.html">Colon</a>
+              </li>
+              <li>
+                <img src="./img/icons/thunderbolt.png" alt="" />
+                <a class="na" href="./pages/et/coloniaElia.html">Colonia Elia</a>
+              </li>
+              <li>
+                <img src="./img/icons/thunderbolt.png" alt="" />
+                <a class="na" href="./pages/et/concordia.html">Concordia</a>
+              </li>
+              <li>
+                <img src="./img/icons/thunderbolt.png" alt="" />
+                <a class="na" href="./pages/et/gualeguaychu.html">Gualeguachú</a>
+              </li>
+              <li>
+                <img src="./img/icons/thunderbolt.png" alt="" />
+                <a class="na" href="./pages/et/masisa.html">Masisa</a>
+              </li>
+              <li>
+                <img src="./img/icons/thunderbolt.png" alt="" />
+                <a class="na" href="./pages/et/sanJose.html">San José</a>
+              </li>
+              <li>
+                <img src="./img/icons/thunderbolt.png" alt="" />
+                <a class="na" href="./pages/et/uruguayNorte.html">Uruguay Norte</a>
+              </li>
+              <li>
+                <img src="./img/icons/thunderbolt.png" alt="" />
+                <a class="na" href="./pages/et/uruguaySur.html">Uruguay Sur</a>
+              </li>
+              <li>
+                <img src="./img/icons/thunderbolt.png" alt="" />
+                <a class="na" href="./pages/et/sanSalvador.html">San Salvador</a>
+              </li>
+              <li>
+                <img src="./img/icons/thunderbolt.png" alt="" />
+                <a class="na" href="./pages/et/villaElisa.html">Villa Elisa</a>
               </li>
             </ul>
           </div>
-        </div>
-      </nav>
-    </header>
 
-    <main>
-      <section class="hero">
-        <div class="estaciones">
-          <div class="ets">
-            <img src="./img/icons/power-plant.png" alt="">
-            <h2>Estaciones:</h2>
+          <div class="sub-estaciones">
+            <div class="sets">
+              <img src="./img/icons/power-plant.png" alt="" />
+              <h2>Sub-estaciones:</h2>
+            </div>
+            
+            <ul>
+              
+                <li>
+                  <img src="./img/icons/thunderbolt.png" alt="" />
+                  <a class="na" href="./pages/set/baylina.html">Baylina</a>
+                </li>
+                <li>
+                  <img src="./img/icons/thunderbolt.png" alt="" />
+                  <a class="na" href="./pages/set/bonn.html">Bonn</a>
+                </li>
+                <li>
+                  <img src="./img/icons/thunderbolt.png" alt="" />
+                  <a class="na" href="./pages/set/caseros.html">Caseros</a>
+                </li>
+                <li>
+                  <img src="./img/icons/thunderbolt.png" alt="" />
+                  <a class="na" href="./pages/set/ceibas.html">Ceibas</a>
+                </li>
+                <li>
+                  <img src="./img/icons/thunderbolt.png" alt="" />
+                  <a class="na" href="./pages/set/colon.html">Colón</a>
+                </li>
+                <li>
+                  <img src="./img/icons/thunderbolt.png" alt="" />
+                  <a class="na" href="./pages/set/coloniaOficial.html"
+                    >Colonia Oficial N°5</a
+                  >
+                </li>
+                <li>
+                  <img src="./img/icons/thunderbolt.png" alt="" />
+                  <a class="na" href="./pages/set/coloniaRoca.html"
+                    >Colonia Roca</a
+                  >
+                </li>
+                <li>
+                  <img src="./img/icons/thunderbolt.png" alt="" />
+                  <a class="na" href="./pages/set/elPuente.html">El Puente</a>
+                </li>
+                <li>
+                  <img src="./img/icons/thunderbolt.png" alt="" />
+                  <a class="na" href="./pages/set/federacion.html"
+                    >Federación</a
+                  >
+                </li>
+                <li>
+                  <img src="./img/icons/thunderbolt.png" alt="" />
+                  <a class="na" href="./pages/set/generalCampos.html"
+                    >General Campos</a
+                  >
+                </li>
+                <li>
+                  <img src="./img/icons/thunderbolt.png" alt="" />
+                  <a class="na" href="./pages/set/humaita.html">Humaitá</a>
+                </li>
+                <li>
+                  <img src="./img/icons/thunderbolt.png" alt="" />
+                  <a class="na" href="./pages/set/ibicuicito.html"
+                    >Ibicuicito</a
+                  >
+                </li>
+                <li>
+                  <img src="./img/icons/thunderbolt.png" alt="" />
+                  <a class="na" href="./pages/set/ibicuy.html">Ibicuy</a>
+                </li>
+                <li>
+                  <img src="./img/icons/thunderbolt.png" alt="" />
+                  <a class="na" href="./pages/set/juanJorge.html">Juan Jorge</a>
+                </li>
+                <li>
+                  <img src="./img/icons/thunderbolt.png" alt="" />
+                  <a class="na" href="./pages/set/jubileo.html">Jubileo</a>
+                </li>
+                <li>
+                  <img src="./img/icons/thunderbolt.png" alt="" />
+                  <a class="na" href="./pages/set/larroque.html">Larroque</a>
+                </li>
+              </ul>
+              <ul>>
+                <li>
+                  <img src="./img/icons/thunderbolt.png" alt="" />
+                  <a class="na" href="./pages/set/mabragana.html">Mabragaña</a>
+                </li>
+                <li>
+                  <img src="./img/icons/thunderbolt.png" alt="" />
+                  <a class="na" href="./pages/set/movil.html">Móvil 5MVA</a>
+                </li>
+                <li>
+                  <img src="./img/icons/thunderbolt.png" alt="" />
+                  <a class="na" href="./pages/set/nuevaEscocia.html"
+                    >Nueva Escocia</a
+                  >
+                </li>
+                <li>
+                  <img src="./img/icons/thunderbolt.png" alt="" />
+                  <a class="na" href="./pages/set/paranacito.html"
+                    >Paranacito</a
+                  >
+                </li>
+                <li>
+                  <img src="./img/icons/thunderbolt.png" alt="" />
+                  <a class="na" href="./pages/set/pronunciamiento.html"
+                    >Pronunciamiento</a
+                  >
+                </li>
+                <li>
+                  <img src="./img/icons/thunderbolt.png" alt="" />
+                  <a class="na" href="./pages/set/puenteQuebracho.html"
+                    >Puente Quebracho</a
+                  >
+                </li>
+                <li>
+                  <img src="./img/icons/thunderbolt.png" alt="" />
+                  <a class="na" href="./pages/set/redomon.html">Redomón</a>
+                </li>
+                <li>
+                  <img src="./img/icons/thunderbolt.png" alt="" />
+                  <a class="na" href="./pages/set/rocamora.html">Rocamora</a>
+                </li>
+                <li>
+                  <img src="./img/icons/thunderbolt.png" alt="" />
+                  <a class="na" href="./pages/set/rosarioDelTala.html"
+                    >Rosario del Tala</a
+                  >
+                </li>
+                <li>
+                  <img src="./img/icons/thunderbolt.png" alt="" />
+                  <a class="na" href="./pages/set/sanMarcial.html"
+                    >San Marcial</a
+                  >
+                </li>
+                <li>
+                  <img src="./img/icons/thunderbolt.png" alt="" />
+                  <a class="na" href="./pages/set/sanVicente.html"
+                    >San Vicente</a
+                  >
+                </li>
+                <li>
+                  <img src="./img/icons/thunderbolt.png" alt="" />
+                  <a class="na" href="./pages/set/santaAnita.html"
+                    >Santa Anita</a
+                  >
+                </li>
+                <li>
+                  <img src="./img/icons/thunderbolt.png" alt="" />
+                  <a class="na" href="./pages/set/urdinarrain.html"
+                    >Urdinarrain</a
+                  >
+                </li>
+                <li>
+                  <img src="./img/icons/thunderbolt.png" alt="" />
+                  <a class="na" href="./pages/set/villaElisa.html"
+                    >Villa Elisa</a
+                  >
+                </li>
+                <li>
+                  <img src="./img/icons/thunderbolt.png" alt="" />
+                  <a class="na" href="./pages/set/zenonRoca.html">Zenón Roca</a>
+                </li>
+              </ul>
+            </ul>
           </div>
-          <ul>
-            <li>
-              <img src="./img/icons/thunderbolt.png" alt="">
-              <a class="na" href="./pages/basso.html">Basso</a>
-            </li>
-            <li>
-              <img src="./img/icons/thunderbolt.png" alt="">
-              <a class="na" href="./pages/chajari.html">Chajari</a>
-            </li>
-            <li>
-              <img src="./img/icons/thunderbolt.png" alt="">
-              <a class="na" href="./pages/chajari.html">Colon</a>
-            </li>
-            <li>
-              <img src="./img/icons/thunderbolt.png" alt="">
-              <a class="na" href="./pages/chajari.html">Colonia Elia</a>
-            </li>
-            <li>
-              <img src="./img/icons/thunderbolt.png" alt="">
-              <a class="na" href="./pages/chajari.html">Concordia</a>
-            </li>
-            <li>
-              <img src="./img/icons/thunderbolt.png" alt="">
-              <a class="na" href="./pages/chajari.html">Gualeguachú</a>
-            </li>
-            <li>
-              <img src="./img/icons/thunderbolt.png" alt="">
-              <a class="na" href="./pages/chajari.html">Masisa</a>
-            </li>
-            <li>
-              <img src="./img/icons/thunderbolt.png" alt="">
-              <a class="na" href="./pages/chajari.html">San José</a>
-            </li>
-            <li>
-              <img src="./img/icons/thunderbolt.png" alt="">
-              <a class="na" href="./pages/chajari.html">Uruguay Norte</a>
-            </li>
-            <li>
-              <img src="./img/icons/thunderbolt.png" alt="">
-              <a class="na" href="./pages/chajari.html">Uruguay Sur</a>
-            </li>
-            <li>
-              <img src="./img/icons/thunderbolt.png" alt="">
-              <a class="na" href="./pages/chajari.html">San Salvador</a>
-            </li>
-            <li>
-              <img src="./img/icons/thunderbolt.png" alt="">
-              <a class="na" href="./pages/chajari.html">Villa Elisa</a>
-            </li>
-          </ul>
+        </section>
+      </main>
+
+      <footer class="footer">
+        <div class="contacto-desarrollador mb-4">
+          <p class="fs-4 text-center text-dark">Contactar desarrollador</p>
+          <a href="https://es.qr-code-generator.com/" target="_blank"
+            ><img src="./img/icons/codigo-qr.png" alt="qr" class="transf-icons"
+          /></a>
+          <a href="https://linkedin.com" target="_blank"
+            ><img
+              src="./img/icons/linkedin.png"
+              alt="linkedin"
+              class="transf-icons"
+          /></a>
         </div>
+      </footer>
+    </div>
 
-        <div class="sub-estaciones">
-          <div class="sets">
-            <img src="./img/icons/power-plant.png" alt="">
-            <h2>Sub-estaciones:</h2>
-          </div>
-          <ul>
-            <li>
-              <img src="./img/icons/thunderbolt.png" alt="">
-              <a class="na" href="./pages/basso.html">Basso</a>
-            </li>
-            <li>
-              <img src="./img/icons/thunderbolt.png" alt="">
-              <a class="na" href="./pages/chajari.html">Chajari</a>
-            </li>
-            <li>
-              <img src="./img/icons/thunderbolt.png" alt="">
-              <a class="na" href="./pages/chajari.html">Colon</a>
-            </li>
-            <li>
-              <img src="./img/icons/thunderbolt.png" alt="">
-              <a class="na" href="./pages/chajari.html">Colonia Elia</a>
-            </li>
-            <li>
-              <img src="./img/icons/thunderbolt.png" alt="">
-              <a class="na" href="./pages/chajari.html">Concordia</a>
-            </li>
-            <li>
-              <img src="./img/icons/thunderbolt.png" alt="">
-              <a class="na" href="./pages/chajari.html">Gualeguachú</a>
-            </li>
-            <li>
-              <img src="./img/icons/thunderbolt.png" alt="">
-              <a class="na" href="./pages/chajari.html">Masisa</a>
-            </li>
-            <li>
-              <img src="./img/icons/thunderbolt.png" alt="">
-              <a class="na" href="./pages/chajari.html">San José</a>
-            </li>
-            <li>
-              <img src="./img/icons/thunderbolt.png" alt="">
-              <a class="na" href="./pages/chajari.html">Uruguay Norte</a>
-            </li>
-            <li>
-              <img src="./img/icons/thunderbolt.png" alt="">
-              <a class="na" href="./pages/chajari.html">Uruguay Sur</a>
-            </li>
-            <li>
-              <img src="./img/icons/thunderbolt.png" alt="">
-              <a class="na" href="./pages/chajari.html">San Salvador</a>
-            </li>
-            <li>
-              <img src="./img/icons/thunderbolt.png" alt="">
-              <a class="na" href="./pages/chajari.html">Villa Elisa</a>
-            </li>
-          </ul>
-        </div>
-
-      </section>
-    </main>
-
-
-    <footer class="footer">
-      <div class="contacto-desarrollador mb-4">
-        <p class="fs-4 text-center text-dark">Contactar desarrollador</p>
-        <a href="https://es.qr-code-generator.com/" target="_blank"><img src="./img/icons/codigo-qr.png" alt="qr"
-            class="transf-icons"></a>
-        <a href="https://linkedin.com" target="_blank"><img src="./img/icons/linkedin.png" alt="linkedin"
-            class="transf-icons"></a>
-      </div>
-    </footer>
-  </div>
-
-  <script src="./js/bootstrap.bundle.min.js"></script>
-  <script src="./js/script.js"></script>
-  <script src="https://cdnout.com/luxon"></script>
-  <script src="https://cdnout.com/jquery/"></script>
-
-</body>
-
+    <script src="./js/bootstrap.bundle.min.js"></script>
+    <script src="./js/script.js"></script>
+    <script src="https://cdnout.com/luxon"></script>
+    <script src="https://cdnout.com/jquery/"></script>
+  </body>
 </html>

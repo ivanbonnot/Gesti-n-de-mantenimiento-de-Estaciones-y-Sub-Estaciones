@@ -29,6 +29,11 @@ body {
 }
 
 /* --- NavBar --- */
+
+.navbar>.container, .navbar>.container-fluid, .navbar>.container-lg, .navbar>.container-md, .navbar>.container-sm, .navbar>.container-xl, .navbar>.container-xxl {
+  justify-content: center;
+}
+
 .header {
   grid-area: navbar;
   position: fixed;
@@ -163,6 +168,7 @@ main section div ul li a:hover {
   display: flex;
   flex-direction: row;
   align-items: center;
+  margin-bottom: 10px;
 }
 
 .sub-estaciones .sets {
@@ -435,7 +441,6 @@ div .notasEliminadas .accordion {
   width: 100%;
   color: #EAEAEA;
   display: grid;
-  grid-template-columns: 1fr 150px 1fr;
   grid-template-rows: auto;
   grid-template-areas: "form redes desarrollador";
   justify-items: center;
@@ -458,6 +463,8 @@ div .notasEliminadas .accordion {
   margin-left: 5px;
 }
 
+
+/* Media queries */
 @media (max-width: 1000px) {
   .header nav a h1 {
     margin: 0px 5px 0 10px;
@@ -562,8 +569,12 @@ div .notasEliminadas .accordion {
 @media (max-width: 640px) {
 .header nav a {
   flex-direction: column;
-  
 }
+
+.estaciones {
+  margin-top: 120px;
+ }
+
 }
 
 
@@ -586,10 +597,8 @@ div .notasEliminadas .accordion {
     align-items: center;
   }
 
-  
-
   .header nav a h2 {
-    margin: 0px 20px 0 10px;
+   
     padding-left: 5px;
     font-size: 2rem;
     word-wrap: break-word;
@@ -603,10 +612,17 @@ div .notasEliminadas .accordion {
 
   .estaciones {
     flex-direction: column;
-    margin-top: 120px;
+    margin-top: 150px;
   }
   .sub-estaciones {
     flex-direction: column;
     margin: 20px 0px 20px 6px;
+  }
+}
+
+@media (max-width: 377px) { 
+  
+  .estaciones {
+    margin-top: 180px;
   }
 }
