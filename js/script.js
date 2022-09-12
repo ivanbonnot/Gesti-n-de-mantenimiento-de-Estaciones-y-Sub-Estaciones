@@ -26,14 +26,12 @@ function eventListeners() {
         nota.addEventListener('click', agregarNota);
     })
 
-
     document.addEventListener('DOMContentLoaded', () => {
         notas = JSON.parse(localStorage.getItem('notasCreadas')) || [];
         notasEliminadas = JSON.parse(localStorage.getItem('notasEliminadas')) || [];
         verificacionPrevia()
     });
 }
-
 
 const notaObj = {
     titulo: '',
@@ -54,7 +52,7 @@ function agregarNota(e) {
 
     const { titulo, detalles } = notaObj
     if (titulo === '' || detalles === '') {
-        mostrarError('Todos los campos son obligatorios')
+        mostrarError('Ambos campos son obligatorios')
     } else {
         notaObj.id = Date.now();
         verificacionPrevia()
@@ -79,10 +77,11 @@ function verificacionPrevia() {
         notaObj.fecha = `${DateTime.now().toLocaleString()}`;
         const notaO = { ...notaObj }
         notas = [...notas, notaO]
+
         localStorage.setItem('notasCreadas', JSON.stringify(notas));
     }
 
-    //Paraimprimir cada nota en la estacion que corresponde
+    //Para imprimir cada nota en la estacion que corresponde
     contenedorNotas.forEach(contenedor => {
         crearNota.forEach(nota => {
             if (contenedor.classList.contains(nota.value)) {
@@ -164,15 +163,13 @@ function eliminarNota(id) {
     }).then((result) => {
         if (result.isConfirmed) {
             localStorage.removeItem('notasCreadas'); //Remuevo el array entero del LS
-            // let notasEliminadasArray = [];
 
             let notasEliminadasArray = notas.filter(nota => nota.id == id)
-
             notasEliminadas = notasEliminadas.concat(notasEliminadasArray)
-
             notas = notas.filter(nota => nota.id !== id)
+
             localStorage.setItem('notasCreadas', JSON.stringify(notas)); //Seteo el nuevo array ya sin la nota borrada
-            localStorage.setItem('notasEliminadas', JSON.stringify(notasEliminadas));
+            localStorage.setItem('notasEliminadas', JSON.stringify(notasEliminadas)); //Seteo el nuevo array con la nota borrada
 
             verificacionPrevia()
         }
@@ -183,14 +180,13 @@ function notasBorradasHTML() {
 
     limpiarHTMLNotasBorradas();
 
+    //Array para hacer el acordeon dinamico, hasta 19 notas pueden crearse por estacion
     const numbers = ['One', 'Two', 'Three', 'Four', 'Five', 'Six', 'sSeven', 'Eight', 'Nine', 'Ten', 'Eleven', 'Twelve', 'Thirteen', 'Furteen', 'Fifteen', 'Sixteen', 'Seventeen', 'Eighteen', 'Nineteen'];
-    //for (let i = 1; i <= notasEliminadasEstacion.length; i++) {
 
     let i = 0
     notasEliminadasEstacion.forEach((nota) => {
-
         i++
-        const { titulo, creadaPor, fecha, hora, estacion, detalles, id } = nota;
+        const { titulo, fecha, detalles } = nota;
         const divAcordeon = document.createElement('div')
 
         //Accordion de Bootstrap implementado de forma dinamica
@@ -237,28 +233,10 @@ function notasBorradasHTML() {
             default:
                 break;
         }
-
         localStorage.setItem('notasEliminadas', JSON.stringify(notasEliminadas));
-        console.log(notasEliminadas)
     }, 432000000);
-
 }
 
-function limpiarHTML() {
-    contenedorNotas.forEach(contenedor => {
-        while (contenedor.firstChild) {
-            contenedor.removeChild(contenedor.firstChild);
-        }
-    })
-}
-
-function limpiarHTMLNotasBorradas() {
-    notasElim.forEach(eliminadas => {
-        while (eliminadas.firstChild) {
-            eliminadas.removeChild(eliminadas.firstChild);
-        }
-    })
-}
 
 function reiniciarFormulario() {
     tituloInput.value = ""
@@ -284,3 +262,20 @@ function mostrarError(mensaje) {
         errorDiv.removeChild(error);
     }, 3000);
 }
+
+function limpiarHTML() {
+    contenedorNotas.forEach(contenedor => {
+        while (contenedor.firstChild) {
+            contenedor.removeChild(contenedor.firstChild);
+        }
+    })
+}
+
+function limpiarHTMLNotasBorradas() {
+    notasElim.forEach(eliminadas => {
+        while (eliminadas.firstChild) {
+            eliminadas.removeChild(eliminadas.firstChild);
+        }
+    })
+}
+
