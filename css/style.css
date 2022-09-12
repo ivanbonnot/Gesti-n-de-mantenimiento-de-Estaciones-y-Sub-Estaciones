@@ -14,23 +14,19 @@ html {
 
 body {
   font-family: 'Roboto', sans-serif;
-  background-color:#409ebd;
+  background-color: #409ebd;
   overflow-x: hidden;
-}
-
-.grid-container {
-  height: 100vh;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: auto auto 0.5fr;
-  grid-template-areas: "navbar navbar"
-    "main main"
-    "footer footer";
 }
 
 /* --- NavBar --- */
 
-.navbar>.container, .navbar>.container-fluid, .navbar>.container-lg, .navbar>.container-md, .navbar>.container-sm, .navbar>.container-xl, .navbar>.container-xxl {
+.navbar>.container,
+.navbar>.container-fluid,
+.navbar>.container-lg,
+.navbar>.container-md,
+.navbar>.container-sm,
+.navbar>.container-xl,
+.navbar>.container-xxl {
   justify-content: center;
 }
 
@@ -60,12 +56,17 @@ body {
 }
 
 .header nav a h1 {
-  margin: 0px 20px 0 10px;
-  padding-top: 5px;
   padding-left: 20px;
+}
+
+.header nav a h2 {
+  margin: 0px 0px 0 0px;
+  padding-top: 5px;
+  padding-left: 5px;
   font-family: 'Open Sans', sans-serif;
   font-size: 2rem;
   font-weight: 800;
+  white-space: wrap;
 }
 
 .header nav ul {
@@ -96,6 +97,24 @@ body {
 
 
 /* --- index --- */
+/* imagen de fondo */
+.hero {
+  height: 100%;
+  width: 100vw;
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../img/hero.jpg");
+  background-color: steelblue;
+  background-position: center;
+  background-size: cover;
+  background-attachment: inherit;
+}
+
+.hero.ets {
+  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("../img/hero.jpg");
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 main {
   grid-area: main;
 }
@@ -108,15 +127,16 @@ main section {
 }
 
 main section div ul {
-  margin-top: 80px;
+  margin-top: 90px;
 }
 
 main section div ul li {
   margin-top: 5px;
-  font-size: 2.2rem;
+  font-size: 2rem;
   list-style: none;
   text-decoration: none;
   background-color: rgba(0, 0, 0, 0.384);
+  white-space: nowrap;
 }
 
 main section div img {
@@ -170,6 +190,11 @@ main section div ul li a:hover {
   align-items: center;
   margin-bottom: 10px;
 }
+.sub-estaciones .nombresSubEstaciones {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
 
 .sub-estaciones .sets {
   display: flex;
@@ -192,25 +217,6 @@ main section div ul li a:hover {
 }
 
 
-/* Imagen de bienvenida */
-.hero {
-  height: 100%;
-  width: 100vw;
-  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../img/hero.jpg");
-  background-color: steelblue;
-  background-position: center;
-  background-size: cover;
-  background-attachment: inherit;
-}
-
-.hero.ets {
-  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("../img/hero.jpg");
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-
 /* ////////////////////////////////////////////////// */
 /* ESTACIONES */
 .grid-container-estaciones {
@@ -228,7 +234,6 @@ main section div ul li a:hover {
   grid-area: main;
   margin-top: 90px;
   margin-bottom: 20px;
-  background-color: #409ebd;
   padding: 0px;
   display: flex;
   flex-direction: column;
@@ -272,8 +277,9 @@ main section div ul li a:hover {
 .lista-notas .notas {
   border-bottom: 1px solid #e1e1e1;
   padding: 10px 5px 5px 15px;
-  
+
 }
+
 .lista-notas .notas:last-of-type {
   border-bottom: 0;
 }
@@ -336,14 +342,14 @@ svg {
 }
 
 .nota .form .consulta textarea {
-  height: 20vh; 
+  height: 20vh;
   width: 98%;
   margin: 5px 5px 5px 5px;
   padding: 5px;
   font-size: 1.5rem;
 }
 
- .form .btn-enviar-consulta {
+.form .btn-enviar-consulta {
   height: 40px;
   width: 200px;
   background: lightblue;
@@ -463,23 +469,50 @@ div .notasEliminadas .accordion {
   margin-left: 5px;
 }
 
+@media (max-width: 1700px) {
+  .footer {
+    height: 100px;
+  }
+}
+
+@media (max-width: 1366px) {
+
+  main section div ul {
+    padding-left: 8px;
+  }
+
+  .footer {
+    height: 60px;
+  }
+}
+
+@media (max-width: 1200px) {
+  main section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+}
 
 /* Media queries */
 @media (max-width: 1000px) {
+
   .header nav a h1 {
     margin: 0px 5px 0 10px;
     padding-top: 5px;
     padding-left: 5px;
     font-size: 1.8rem;
   }
+
   main section div ul {
-    margin-top: 25px;
+    margin-bottom: 0px;
     padding-left: 5px;
   }
 
   main section div ul li {
     margin-top: 2px;
-    font-size: 1.8rem;
+    font-size: 2rem;
     list-style: none;
     text-decoration: none;
   }
@@ -493,19 +526,20 @@ div .notasEliminadas .accordion {
     letter-spacing: 1px;
     font-size: 2rem;
   }
-  
 }
-@media (max-width: 868px) {
 
+@media (max-width: 868px) {
   .header nav .logo-size {
     height: 40px;
     width: 100px;
   }
+
   .header nav a h2 {
     padding-top: 5px;
     padding-left: 5px;
     font-size: 1.8rem;
   }
+
   .header nav ul li a {
     margin-right: 5px;
     padding: 7px 5px;
@@ -517,36 +551,54 @@ div .notasEliminadas .accordion {
 
 
 @media (max-width: 800px) {
-  main section {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-  
+
+
   .estaciones {
     margin-top: 80px;
-   }
-   .estaciones .ets h2 {
-     letter-spacing: 2px;
-     font-size: 2.2rem;
-   }
-   .sub-estaciones {
+  }
+
+  .estaciones .ets h2 {
+    letter-spacing: 2px;
+    font-size: 2.2rem;
+  }
+
+  .sub-estaciones {
     margin-right: 50px;
-   }
-   .sub-estaciones .sets h2 {
-     letter-spacing: 2px;
-     font-size: 2.2rem;
-   }
+  }
+
+  .sub-estaciones .sets h2 {
+    letter-spacing: 2px;
+    font-size: 2.2rem;
+  }
 }
 
 @media (max-width: 768px) {
-  
+
   .navbar-nav .nav-link {
-    padding: 5px 0px 0px 10px ;
+    padding: 5px 0px 0px 10px;
     font-size: 2rem;
   }
-  
+
+  .estaciones {
+    flex-direction: column;
+    margin-top: 100px;
+  }
+
+  .sub-estaciones {
+    flex-direction: column;
+    margin: 20px 0px 20px 6px;
+  }
+
+  .sub-estaciones .nombresSubEstaciones {
+    flex-direction: row;
+  }
+
+  main section div ul {
+    margin-top: 0px;
+    padding-left: 5px;
+  }
+
+  /*Pagina ets y sets */
   #contenido {
     width: 95vw;
     margin: 0;
@@ -556,38 +608,42 @@ div .notasEliminadas .accordion {
     font-weight: bold;
     font-size: 2.5rem;
   }
+
   .nota .form {
     width: 85vw;
   }
 
-/* Parte del listado de las notas */
+  /* Parte del listado de las notas */
   .listado-notas {
     width: 90vw;
   }
 
 }
-@media (max-width: 640px) {
-.header nav a {
-  flex-direction: column;
-}
 
-.estaciones {
-  margin-top: 120px;
- }
+@media (max-width: 640px) {
+  .header nav a {
+    flex-direction: column;
+  }
+
+  .estaciones {
+    margin-top: 140px;
+  }
+
+  #contenido {
+    margin-top: 50px;
+  }
 
 }
 
 
 @media (max-width: 576px) {
-  #contenido {
-    margin: 0;
-  }
   .nota .form .consulta textarea {
     min-height: 150px;
   }
+
   .listado-notas h2 {
     font-size: 2rem;
-}
+  }
 }
 
 @media (max-width: 500px) {
@@ -598,31 +654,26 @@ div .notasEliminadas .accordion {
   }
 
   .header nav a h2 {
-   
     padding-left: 5px;
     font-size: 2rem;
     word-wrap: break-word;
     text-overflow: clip;
   }
 
-  main section div ul {
-    margin-top: 0px;
-    padding-left: 5px;
+  .sub-estaciones .nombresSubEstaciones {
+    flex-direction: column;
   }
 
-  .estaciones {
-    flex-direction: column;
-    margin-top: 150px;
-  }
-  .sub-estaciones {
-    flex-direction: column;
-    margin: 20px 0px 20px 6px;
-  }
+
 }
 
-@media (max-width: 377px) { 
-  
+@media (max-width: 377px) {
+
   .estaciones {
     margin-top: 180px;
+  }
+
+  #contenido {
+    margin-top: 70px;
   }
 }
