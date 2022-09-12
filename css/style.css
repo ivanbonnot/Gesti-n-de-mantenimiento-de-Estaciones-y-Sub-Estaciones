@@ -220,7 +220,7 @@ main section div ul li a:hover {
 /* ////////////////////////////////////////////////// */
 /* ESTACIONES */
 .grid-container-estaciones {
-  height: 100vh;
+  height: auto;
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: auto auto 0.5fr;

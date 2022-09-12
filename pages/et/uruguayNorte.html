@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ET Uruguay Norte</title>
+  <link rel="shortcut icon" href="/img/icons/favicon.ico" type="image/x-icon" />
+  <link href="/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+
+<body>
+  <div class="grid-container-estaciones">
+    <header class="header">
+      <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+        <div class="container-fluid">
+          <div class="d-flex flex-column">
+            <a class="navbar-brand" href="/index.html">
+              <img
+                class="transf-icons logo-size"
+                src="/img/logo.png"
+                alt=""
+                width="75"
+                height="75"
+              />
+              <h1 class="navbar-brand marca transf-icons" href="#">
+                <h2>Gestión de mantenimiento</h2>
+                <h2>de Estaciones y Sub Estaciones</h2>
+              </h1>
+            </a>
+          </div>
+          <button
+            class="navbar-toggler mx-auto"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNav"
+            aria-controls="navbarNav"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse mx-auto" id="navbarNav">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link" href="/pages/cambios.html">Cambios</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/pages/listas.html">Listas</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+
+    <div class="hero ets">
+      <div class="container">
+        <div id="contenido" class="">
+          <h2 class="text-center my-1 titulo">
+            Anotaciones de la estación Uruguay Norte
+          </h2>
+          <section class="nota">
+            <form class="form error-campos">
+
+              <div class="name">
+                <img src="/img/icons/title.png" alt="">
+                <input id="titulo" class="transf-trans" name="titulo" type="text" placeholder="Titulo" />
+              </div>
+
+              <div class="consulta">
+                <textarea id="detalles" class="transf-trans" name="detalles"
+                  placeholder="Detalles de la nota"></textarea>
+              </div>
+
+              <button class="btn-enviar-consulta" value="uruguayNorte" id="crear-nota" type="submit" value="Enviar">
+                Crear nota
+              </button>
+
+            </form>
+          </section>
+
+          <div class="listado-notas">
+            <h2 class="text-center pt-3">Notas</h2>
+            <ul id="notas" class="uruguayNorte list-group lista-notas"></ul>
+          </div>
+
+        </div>
+      </div>
+      
+      <div class="notasEliminadas">
+        <h3>Notas eliminadas</h3>
+          <div class="notasBorradas">
+
+          </div>
+      </div>
+
+      <footer class="footer">
+        <div class="contacto-desarrollador mb-4">
+          <p class="fs-4 text-center text-dark">Contactar desarrollador</p>
+          <a href="https://es.qr-code-generator.com/" target="_blank"><img src="/img/icons/codigo-qr.png" alt="qr"
+              class="transf-icons"></a>
+          <a href="https://linkedin.com" target="_blank"><img src="/img/icons/linkedin.png" alt="linkedin"
+              class="transf-icons"></a>
+        </div>
+      </footer>
+
+    </div>
+  </div>
+
+  <script type="module" src="/js/script.js"></script>
+  <script src="/js/bootstrap.bundle.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="https://cdnout.com/luxon"></script>
+  <script src="https://cdnout.com/jquery/"></script>
+</body>
+
+</html>
