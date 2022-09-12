@@ -164,10 +164,10 @@ function eliminarNota(id) {
     }).then((result) => {
         if (result.isConfirmed) {
             localStorage.removeItem('notasCreadas'); //Remuevo el array entero del LS
-           // let notasEliminadasArray = [];
+            // let notasEliminadasArray = [];
 
             let notasEliminadasArray = notas.filter(nota => nota.id == id)
-            
+
             notasEliminadas = notasEliminadas.concat(notasEliminadasArray)
 
             notas = notas.filter(nota => nota.id !== id)
@@ -180,7 +180,7 @@ function eliminarNota(id) {
 }
 
 function notasBorradasHTML() {
-    
+
     limpiarHTMLNotasBorradas();
 
     const numbers = ['One', 'Two', 'Three', 'Four', 'Five', 'Six', 'sSeven', 'Eight', 'Nine', 'Ten', 'Eleven', 'Twelve', 'Thirteen', 'Furteen', 'Fifteen', 'Sixteen', 'Seventeen', 'Eighteen', 'Nineteen'];
@@ -219,22 +219,27 @@ function notasBorradasHTML() {
         })
     })
 
-    //Borro cada 5 dias el item mas antiguo del array de notas eliminadas
+    //Borro cada 5 dias el item mas antiguo del array de notas eliminadas, dependiendo el largo del array
     //Equivalente a 5 dias en ms 432000000
     setInterval(() => {
         localStorage.removeItem('notasEliminadas')
-
-        switch (notasEliminadas.length) {
-            case value:
-                
+        const notasEliminadasLength = notasEliminadas.length
+        switch (true) {
+            case (notasEliminadasLength >= 20):
+                notasEliminadas = notasEliminadas.slice(5, notasEliminadasLength)
                 break;
-        
+            case (notasEliminadasLength >= 10):
+                notasEliminadas = notasEliminadas.slice(2, notasEliminadasLength)
+                break;
+            case (notasEliminadasLength >= 5):
+                notasEliminadas = notasEliminadas.slice(1, notasEliminadasLength)
+                break;
             default:
                 break;
         }
 
-        notasEliminadas.shift()
         localStorage.setItem('notasEliminadas', JSON.stringify(notasEliminadas));
+        console.log(notasEliminadas)
     }, 432000000);
 
 }
