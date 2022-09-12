@@ -668,7 +668,9 @@ div .notasEliminadas .accordion {
 }
 
 @media (max-width: 377px) {
-
+  .header nav a h2 {
+    font-size: 1.8rem;
+  }
   .estaciones {
     margin-top: 180px;
   }
@@ -676,8 +678,5 @@ div .notasEliminadas .accordion {
   #contenido {
     margin-top: 70px;
   }
-  .header nav a h2 {
-    
-    font-size: 1.8rem;
-  }
+  
 }
