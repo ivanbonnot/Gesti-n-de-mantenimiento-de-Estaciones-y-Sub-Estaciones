@@ -100,7 +100,7 @@ function imprimirNotaHTML() {
     limpiarHTML();
 
     notasEstacion.forEach((nota) => {
-        const { titulo, creadaPor, fecha, hora, estacion, detalles, id } = nota;
+        const { titulo, creadaPor, fecha, hora, detalles, id } = nota;
 
         const divNota = document.createElement('div');
         divNota.classList.add('notas');
