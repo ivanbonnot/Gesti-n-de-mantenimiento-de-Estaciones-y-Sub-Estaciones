@@ -676,4 +676,8 @@ div .notasEliminadas .accordion {
   #contenido {
     margin-top: 70px;
   }
+  .header nav a h2 {
+    
+    font-size: 1.8rem;
+  }
 }
